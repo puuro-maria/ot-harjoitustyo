@@ -1,0 +1,122 @@
+commit 4ad6d64efe218ecf7181e5345287810445d7333b
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Tue Mar 17 09:23:49 2020 +0200
+
+    .
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f23d2e6734bbae395173a8fb0d862a9416fbdd59
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Tue Mar 17 09:22:23 2020 +0200
+
+    muutosta
+
+ tiedostoja/file3.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit a30878544f97d0f44e301b169cf9b580d4c8d678
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Tue Mar 17 09:10:15 2020 +0200
+
+    uusi hakemisto ja tiedostot
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 6adbdb71a7f43e3069589fcc2d7a2aba853adbd3
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Tue Mar 17 08:47:56 2020 +0200
+
+    muutoksia ekaan ja kolmanteen
+
+ eka.txt    | 6 +++---
+ kolmas.txt | 4 +++-
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+commit d96bcf7503ebbac3dbcdfa0474612fd9d9425837
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Tue Mar 17 08:44:25 2020 +0200
+
+    uudelleennimeäminen
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit bae0a2bdfe001b76426a47759db59750e444849f
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Tue Mar 17 08:40:39 2020 +0200
+
+    toinen.txt poistettu!
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ba608e8b399fec69983bafa49497a3f707097fcf
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Sun Mar 15 13:11:54 2020 +0200
+
+    muokkauksia taas
+
+ tiedosto.txt | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit fb9760c25bc2cbf533cfea0400fa9f77a1afdca3
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Sun Mar 15 12:31:27 2020 +0200
+
+    tiedostoon pitkä teksti
+
+ tiedosto.txt | 302 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 301 insertions(+), 1 deletion(-)
+
+commit a47b195865f86dbd5ccc72e7c536c3cd07da3cea
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Sun Mar 15 12:24:32 2020 +0200
+
+    stuff-kansion lisäys
+
+ stuff/asioita.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 8973836353210fe8731ff66a43eaccff92fbdcb2
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Sun Mar 15 12:23:13 2020 +0200
+
+    toisen muutokset lisätty
+
+ toinen.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 49b24c0e59b983d6dc75f024b306e6928938a67f
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Sun Mar 15 12:21:33 2020 +0200
+
+    kolmas tiedosto lisätty
+
+ kolmas.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 387ba4f50112e74cb41b8a28e8f28aefc7208d8e
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Sun Mar 15 12:08:41 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 17a2e267826c044157f591bdb3c6995fc50fd972
+Author: Viivi Puuronen <viivi.puuronen@hotmail.com>
+Date:   Sun Mar 15 12:05:56 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
