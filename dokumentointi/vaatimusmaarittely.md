@@ -1,10 +1,10 @@
-#Vaatimusmäärittely
+# Vaatimusmäärittely
 
-##Sovelluksen tarkoitus
+## Sovelluksen tarkoitus
 
 Sovelluksen tarkoitus on pitää yllä korkeakouluopintojen tilannetta ja suunnitelmaa. Sovelluksen avulla voi tarkistaa, montako opintopistettä on kasassa, mitä kursseja on käytynä, montako opintopistettä täytyy vielä saada ennen valmistumista ja mitä kursseja on tarkoitus käydä.
 
-##Käyttöliittymä
+## Käyttöliittymä
 
 Sovellus koostuu neljästä näkymästä:
 
@@ -16,7 +16,7 @@ Sovellus koostuu neljästä näkymästä:
 
 4. Merkitse kurssi suoritetuksi. 
 
-##Toiminnallisuus
+## Toiminnallisuus
 
 Käyttäjä voi luoda käyttäjätunnuksen.
 
