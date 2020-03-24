@@ -18,25 +18,25 @@ Sovellus koostuu neljästä näkymästä:
 
 ## Toiminnallisuus
 
-Käyttäjä voi luoda käyttäjätunnuksen.
+- Käyttäjä voi luoda käyttäjätunnuksen.
 
     - uniikki tunnus ja sille salasana
 
-Käyttäjä voi kirjautua sisään.
+- Käyttäjä voi kirjautua sisään.
 
     - onnistuu jos ja vain jos käyttäjätunnus on olemassa ja syötetty salasana vastaa käyttäjäkohtaista salasanaa
     
     - sovellus ilmoittaa jos virheellinen tunnus tai väärä salasana
 
-Käyttäjä voi tarkastella käymiään kursseja 
+- Käyttäjä voi tarkastella käymiään kursseja 
 
     - kurssit listataan heti kirjautumisen jälkeen näkymälle
 
-Käyttäjä voi tarkastella, mitä kursseja on suunnitellut käytäväksi
+- Käyttäjä voi tarkastella, mitä kursseja on suunnitellut käytäväksi
 
     - suunnitellut kurssit listataan samalle sivulle jo käytyjen kurssien kanssa, mutta ne ovat eri listalla kuin käydyt
 
-Käyttäjä voi lisätä uuden kurssin
+- Käyttäjä voi lisätä uuden kurssin
 
     - kurssi voi olla jo suoritettu tai vasta suunnitteilla
 
@@ -44,14 +44,14 @@ Käyttäjä voi lisätä uuden kurssin
 
     - kurssille voi merkitä, kuuluuko kandi- vai maisteriopintoihin
 
-Käyttäjä voi poistaa kurssin, jonka on aiemmin merkinnyt suunnitelmaansa
+- Käyttäjä voi poistaa kurssin, jonka on aiemmin merkinnyt suunnitelmaansa
 
     - jo suoritettua kurssia ei voi poistaa
 
     - kurssilistauksessa voisi suunniteltujen kurssien kohdalla olla "merkitse suoritetuksi" ja "poista kurssi" -napit
 
-Käyttäjä voi merkitä suunnitellun kurssin käydyksi
+- Käyttäjä voi merkitä suunnitellun kurssin käydyksi
 
     - kurssilistauksella on suunniteltujen kurssien kohdalla "merkitse suoritetuksi"
 
-Käyttäjä voi kirjautua ulos.
+- Käyttäjä voi kirjautua ulos.
