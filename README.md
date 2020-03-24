@@ -1,5 +1,5 @@
-# Tekstiä
-## Tekstiä *toimiikohan*
+# Ohjelmistotekniikka-kurssin repositorio
+## Sisältää laskarit ja harjoitustyön
 [Gitlog viikko1](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
 [Komentorivi viikko1](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
