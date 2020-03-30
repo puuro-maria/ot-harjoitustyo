@@ -3,6 +3,7 @@ package Domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 
 public class TranscriptOfRecords {
@@ -13,10 +14,16 @@ public class TranscriptOfRecords {
         if(!transcript.containsKey(student)){
             ArrayList<Course> courses = new ArrayList<>();
             transcript.put(student, courses);
-        }
-            
+        } 
     }
-
+    
+    public String getStudents(){
+        
+        String students = "Opiskelijat:\n--------------";
+        for(Student s : transcript.keySet())
+            students = students + s.toString() + "\n";
+        return students;
+    }
     
     public void addCourse(Student student, Course course){
         
@@ -26,8 +33,10 @@ public class TranscriptOfRecords {
             transcript.put(student, courses);
         }
         
-        if(!transcript.containsKey(student))
+        if(!transcript.containsKey(student)){
             addStudent(student);
+            addCourse(student, course);
+        }
             
     }
     
@@ -53,7 +62,8 @@ public class TranscriptOfRecords {
     }
     
     public ArrayList<Course> getTranscript(Student s){
-        return transcript.get(s);
+            
+        return this.transcript.get(s);
     }
     
     public String toString(Student s){
@@ -67,5 +77,4 @@ public class TranscriptOfRecords {
         return list;
     }
 
-    
 }

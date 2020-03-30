@@ -4,6 +4,7 @@ package Logic;
 import Domain.*;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 
 
@@ -65,6 +66,10 @@ public class Logic {
         }
         
         return student;
+    }
+    
+    public void getStudents(){
+        System.out.println(records.getStudents());
     }
     
 }

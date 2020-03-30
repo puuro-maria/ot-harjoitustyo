@@ -21,7 +21,7 @@ public class StudentTest {
     }
     
     @Test
-    public void konstruktoriJaTulostusToimii(){
+    public void constructorAndtoStringWorks(){
         String print = s.toString();
         assertEquals("Opiskelija: Viivi\nOpiskelijanumero: 111\nYliopisto: Helsingin Yliopisto", print);
     }
