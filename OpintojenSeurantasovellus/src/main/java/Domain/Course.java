@@ -7,6 +7,7 @@ public class Course {
     private int credits, id;
     private String name, professor;
     private Degree degree;
+    private Semester semester;
     private boolean finished;
     
     public Course(){
@@ -49,6 +50,14 @@ public class Course {
     
     public boolean getFinished(){
         return this.finished;
+    }
+    
+    public void setSemester(Semester s){
+        this.semester = s;
+    }
+    
+    public Semester getSemester(){
+        return this.semester;
     }
     
     @Override

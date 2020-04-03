@@ -5,17 +5,18 @@ package Domain;
 public class Student {
     
     private int id; //not studentid, database id
-    private String name, uni, studentId;
+    private String name, uni, studentId, password;
     
     public Student(){
         
     }
     
-    public Student(int id, String name, String studentId, String uni){
+    public Student(int id, String name, String studentId, String uni, String password){
         this.id = id;
         this.name = name;
         this.uni = uni;
         this.studentId = studentId;
+        this.password = password;
     }
     
     public int getId(){
@@ -32,6 +33,10 @@ public class Student {
     
     public String getStudentId(){
         return this.studentId;
+    }
+    
+    public void setPassword(String newPassword){
+        this.password = newPassword;
     }
     
     @Override

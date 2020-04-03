@@ -70,7 +70,7 @@ public class TextUi {
         String uni = sc.nextLine();
         System.out.println("Yliopistosi: " + uni);
         
-        logic.addStudent(name, studentId, uni);
+        logic.addStudent(name, studentId, uni, "salasana");
 
         printNavigator();
         

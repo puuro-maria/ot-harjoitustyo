@@ -19,9 +19,9 @@ public class Logic {
         
     }
     
-    public void addStudent(String name, String studentId, String uni){
+    public void addStudent(String name, String studentId, String uni, String password){
         
-        Student student = new Student(id, name, studentId, uni);
+        Student student = new Student(id, name, studentId, uni, "salasana");
         records.addStudent(student);
         this.students.add(student);
         id++;
@@ -51,7 +51,10 @@ public class Logic {
         Student s = getStudent(studentId);
         Course c = records.getCourse(s, courseId);
         
-        records.removeCourse(s, c);
+        if(c.getFinished()==false)
+            records.removeCourse(s, c);
+        else
+            System.out.println("Olet jo suorittanut kurssin, sitä ei voi poistaa rekisteristä.");
     }
     
     public Student getStudent(String studentId){
@@ -70,6 +73,12 @@ public class Logic {
     
     public void getStudents(){
         System.out.println(records.getStudents());
+    }
+    
+    public void finishCourse(int courseId, String studentId){
+        Student s = getStudent(studentId);
+        Course c = records.getCourse(s, courseId);
+        c.finishCourse();
     }
     
 }
