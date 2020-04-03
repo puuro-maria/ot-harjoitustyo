@@ -25,29 +25,43 @@ public class TextUi {
         System.out.println("*******************************");
         System.out.println("*Opintojen seurantajärjestelmä*");
         System.out.println("*******************************\n");
-        printNavigator();
-    }
-    
-    void printNavigator(){
-        System.out.println("****************");
         System.out.println("Valitse toiminto");
-        System.out.println("1 - Lisää tunnus");
-        System.out.println("2 - Lisää kurssi");
-        System.out.println("3 - Listaa kurssit");
-        System.out.println("4 - Poista kurssi");
-        System.out.println("Syötä valinta> ");
-        
+        System.out.println("1 - Rekisteröidy");
+        System.out.println("2 - Kirjaudu sisään");
+        System.out.println("3 - Lopeta");
         int input = scint.nextInt();
         
         switch(input){
             case 1:
                 addStudent();
             case 2:
-                addCourse();
+                logIn();
             case 3:
+                break;
+        }
+    }
+    
+    
+    void printNavigator(){
+        System.out.println("****************");
+        System.out.println("Valitse toiminto");
+        System.out.println("1 - Lisää kurssi");
+        System.out.println("2 - Listaa kurssit");
+        System.out.println("3 - Poista kurssi");
+        System.out.println("4 - Kirjaudu ulos");
+        System.out.println("Syötä valinta> ");
+        
+        int input = scint.nextInt();
+        
+        switch(input){
+            case 1:
+                addCourse();
+            case 2:
                 listCourses();
-            case 4:
+            case 3:
                 removeCourse();
+            case 4:
+                logOut();
         }
     }
     
@@ -72,7 +86,7 @@ public class TextUi {
         
         logic.addStudent(name, studentId, uni, "salasana");
 
-        printNavigator();
+        printTitle();
         
     }
     
@@ -82,10 +96,10 @@ public class TextUi {
         System.out.println("**************");
         
 
-        System.out.print("Syötä opiskelijanumero> ");
+        /*System.out.print("Syötä opiskelijanumero> ");
         String studentId = sc.nextLine();
         System.out.println("Olet lisäämässä uuden kurssin opiskelijalle: " + logic.getStudent(studentId).toString());
-        
+        */
 
         System.out.print("Syötä kurssin id> ");
         int courseId = scint.nextInt();
@@ -134,7 +148,7 @@ public class TextUi {
         System.out.println("Kurssi on " + out);
         
         
-        logic.addCourse(studentId, courseId, courseName, credits, professor, d, finished);
+        logic.addCourse(logic.getLoggedInStudent(), courseId, courseName, credits, professor, d, finished);
         printNavigator();
     }
     
@@ -142,9 +156,9 @@ public class TextUi {
         System.out.println("****************************");
         System.out.println("*Listaa opiskelijan kurssit*");
         System.out.println("****************************");
-        System.out.print("Syötä opiskelijanumero >");
-        String studentId = sc.nextLine();
-        logic.listCourses(studentId);
+        /*System.out.print("Syötä opiskelijanumero >");
+        String studentId = sc.nextLine();*/
+        logic.listCourses(logic.getLoggedInStudent());
         System.out.print("Syötä x jos haluat aloitusvalikkoon");
         String input = sc.nextLine();
         if(input.equals("x"))
@@ -155,15 +169,36 @@ public class TextUi {
         System.out.println("***************");
         System.out.println("*Poista kurssi*");
         System.out.println("***************");
-        System.out.print("Syötä opiskelijanumero >");
-        String studentId = sc.nextLine();
+        /*System.out.print("Syötä opiskelijanumero >");
+        String studentId = sc.nextLine();*/
         
-        logic.listCourses(studentId);
+        logic.listCourses(logic.getLoggedInStudent());
         System.out.print("Syötä poistettavan kurssin id> ");
         int courseId = scint.nextInt();
         
-        logic.removeCourse(studentId, courseId);
+        logic.removeCourse(logic.getLoggedInStudent(), courseId);
         printNavigator();
     }
+    
+    void logIn(){
+        System.out.println("*********************");
+        System.out.println("*Sisäänkirjautuminen*");
+        System.out.println("*********************");
+        System.out.print("Syötä opiskelijanumero> ");
+        String studentId = sc.nextLine();
+        System.out.print("Syötä salasana> ");
+        String password = sc.nextLine();
+        boolean login = logic.checkLogIn(studentId, password);
+        if(login==true)
+            printNavigator();
+        
+        else printTitle();
+    }
+    
+    void logOut(){
+        logic.logOut();
+        printTitle();
+    }
+    
     
 }

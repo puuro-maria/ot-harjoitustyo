@@ -1,4 +1,5 @@
 import Domain.*;
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -22,15 +23,19 @@ public class TranscriptOfRecordsTest {
     @Before
     public void setUp() {
         t = new TranscriptOfRecords();
-        s = new Student(1, "Viivi", "123", "HY");
+        s = new Student(1, "Viivi", "123", "HY", "salasana");
         c = new Course(2, "OTM", 5, "Ope Opetin", Degree.BACHELOR, false);
     }
     
     @Test
     public void addStudentWorks(){
         t.addStudent(s);
-        String print = t.getStudents();
-        assertTrue(print.contains("Viivi"));
+        ArrayList<Student> students = t.getStudents();
+        String print =""; 
+        for(Student st : students)
+            if(s.getStudentId().equals(st.getStudentId()))
+                print = st.getName();
+        assertTrue(print.equals("Viivi"));
     }
     
     @Test

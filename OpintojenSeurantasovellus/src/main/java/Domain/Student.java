@@ -39,6 +39,10 @@ public class Student {
         this.password = newPassword;
     }
     
+    public String getPassword(){
+        return this.password;
+    }
+    
     @Override
     public String toString(){
         return "Opiskelija: " + this.name + "\nOpiskelijanumero: " + this.studentId + "\nYliopisto: " + this.uni;

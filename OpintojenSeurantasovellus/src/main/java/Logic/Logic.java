@@ -13,6 +13,7 @@ public class Logic {
     private static int id = 1;
     TranscriptOfRecords records = new TranscriptOfRecords();
     ArrayList<Student> students = new ArrayList<>();
+    private static String loggedInStudent;
 
     
     public Logic(){
@@ -71,14 +72,42 @@ public class Logic {
         return student;
     }
     
-    public void getStudents(){
-        System.out.println(records.getStudents());
+    public ArrayList getStudents(){
+        return records.getStudents();
     }
     
     public void finishCourse(int courseId, String studentId){
         Student s = getStudent(studentId);
         Course c = records.getCourse(s, courseId);
         c.finishCourse();
+    }
+    
+    public boolean checkLogIn(String studentId, String password){
+        ArrayList<Student> studentList = getStudents();
+        Student s;
+        for(Student st : studentList)
+            if(studentId.equals(st.getStudentId())){
+                s = st;
+                if(s.getPassword().equals(password)){
+                    loggedInStudent=studentId;
+                    return true;
+                }
+                else{
+                    System.out.println("Virheellinen salasana!");
+                    return false;
+                }
+            }
+            else 
+                System.out.println("Opiskelijanumerolla " + studentId + " ei löytynyt tunnuksia.");
+        return false;
+    }
+    
+    public void logOut(){
+        loggedInStudent = "-";
+    }
+    
+    public String getLoggedInStudent(){
+        return loggedInStudent;
     }
     
 }

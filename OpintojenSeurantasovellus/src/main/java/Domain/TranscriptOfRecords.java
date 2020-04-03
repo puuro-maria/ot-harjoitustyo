@@ -17,11 +17,11 @@ public class TranscriptOfRecords {
         } 
     }
     
-    public String getStudents(){
+    public ArrayList getStudents(){
         
-        String students = "Opiskelijat:\n--------------";
+        ArrayList<Student> students = new ArrayList<>();
         for(Student s : transcript.keySet())
-            students = students + s.toString() + "\n";
+            students.add(s);
         return students;
     }
     

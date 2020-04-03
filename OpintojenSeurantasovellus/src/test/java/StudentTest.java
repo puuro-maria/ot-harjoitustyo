@@ -17,7 +17,7 @@ public class StudentTest {
     
     @Before 
     public void setUp(){
-        s = new Student(1, "Viivi", "111", "Helsingin Yliopisto");
+        s = new Student(1, "Viivi", "111", "Helsingin Yliopisto", "salasana");
     }
     
     @Test
