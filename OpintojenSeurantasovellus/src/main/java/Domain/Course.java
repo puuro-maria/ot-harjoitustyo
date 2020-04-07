@@ -66,4 +66,8 @@ public class Course {
                 + this.credits + "\nVastuuopettaja: " + this.professor + 
                 "\nKurssi suoritettu: " + this.finished + "\n----------------------\n";
     }
+
+    public boolean isEmpty() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

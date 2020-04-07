@@ -25,7 +25,7 @@ public class CourseTest {
     @Test
     public void constructorAndtoStringWorks(){
         String print = c.toString();
-        assertEquals("Kurssi 2, OTM\nOpintopisteet: 5\nVastuuopettaja: Opettaja Opetin\nKurssi suoritettu: false\n----------------------", print);
+        assertEquals("Kurssi 2, OTM\nOpintopisteet: 5\nVastuuopettaja: Opettaja Opetin\nKurssi suoritettu: false\n----------------------\n", print);
     }
     
 

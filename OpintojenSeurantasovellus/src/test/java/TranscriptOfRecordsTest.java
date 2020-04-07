@@ -44,5 +44,12 @@ public class TranscriptOfRecordsTest {
         assertEquals(t.getCourse(s, 2).getName(), "OTM");
     }
     
+    @Test
+    public void removeCourseWorks(){
+        t.addCourse(s, c);
+        t.removeCourse(s, c);
+        assertTrue(!t.toString().contains("OTM"));
+    }
+    
   
 }
