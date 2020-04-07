@@ -8,5 +8,7 @@ Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
 [Vaatimusmäärittely](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
+[Arkkitehtuuri](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
+
 [Työaikakirjanpito](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)
 
