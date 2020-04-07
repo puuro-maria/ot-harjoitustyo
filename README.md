@@ -4,7 +4,7 @@ Sovelluksessa voi pitää kirjaa omien opintojen nykytilanteesta ja suunnitelmis
 
 Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
--- Java versio 11
+- Java versio 11
 
 [Vaatimusmäärittely](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
