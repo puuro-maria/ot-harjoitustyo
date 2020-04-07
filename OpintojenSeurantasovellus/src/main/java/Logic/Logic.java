@@ -17,7 +17,8 @@ public class Logic {
 
     
     public Logic(){
-        
+        TranscriptOfRecords records = new TranscriptOfRecords();
+        ArrayList<Student> students = new ArrayList<>();
     }
     
     public void addStudent(String name, String studentId, String uni, String password){
@@ -39,13 +40,10 @@ public class Logic {
         
     }
     
-    public void listCourses(Student s){
-        records.toString(s);
-    }
     
-    public void listCourses(String studentId){
+    public String listCourses(String studentId){
         Student s = getStudent(studentId);
-        System.out.println(records.toString(s));
+        return records.toString(s);
     }
     
     public void listCoursesNotPassed(String studentId){

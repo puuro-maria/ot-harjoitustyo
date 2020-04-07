@@ -156,7 +156,7 @@ public class TextUi {
         System.out.println("*Listaa opiskelijan kurssit*");
         System.out.println("****************************");
 
-        logic.listCourses(logic.getLoggedInStudent());
+        System.out.println(logic.listCourses(logic.getLoggedInStudent()));
         System.out.println("*****************************");
         logic.listCoursesNotPassed(logic.getLoggedInStudent());
         System.out.print("Syötä x jos haluat aloitusvalikkoon");
