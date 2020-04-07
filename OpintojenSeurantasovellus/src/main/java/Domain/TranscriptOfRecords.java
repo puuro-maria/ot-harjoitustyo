@@ -3,8 +3,6 @@ package Domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
-
 
 public class TranscriptOfRecords {
     
@@ -75,6 +73,19 @@ public class TranscriptOfRecords {
             list = list + co.toString();
         
         return list;
+    }
+    
+    public String listCoursesNotPassed(Student s){
+        
+        ArrayList<Course> c = transcript.get(s);
+        String list = "Opiskelijan " + s.getName() + " " + s.getStudentId() + " suorittamattomat kurssit:\n";
+        
+        for (Course co : c)
+            if(co.getFinished()==false)
+                list = list + co.toString();
+            
+        return list;
+        
     }
 
 }

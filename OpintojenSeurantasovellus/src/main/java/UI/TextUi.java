@@ -37,7 +37,7 @@ public class TextUi {
             case 2:
                 logIn();
             case 3:
-                break;
+                System.exit(0);
         }
     }
     
@@ -79,12 +79,23 @@ public class TextUi {
         String studentId = sc.nextLine();
         System.out.println("Opiskelijanumerosi: " + studentId);
         
+        String password = "a";
+        String confirm="b";
+        do{
+        System.out.print("Syötä salasana> ");
+        password = sc.nextLine();
+        
+        System.out.print("Vahvista salasana> ");
+        confirm = sc.nextLine();
+        if(!password.equals(confirm))
+                System.out.println("Salasanat eivät täsmää, yritä uudelleen!\n");
+        }while(logic.confirmPassword(password, confirm)==false);
         
         System.out.print("Syötä yliopiston nimi> ");
         String uni = sc.nextLine();
         System.out.println("Yliopistosi: " + uni);
         
-        logic.addStudent(name, studentId, uni, "salasana");
+        logic.addStudent(name, studentId, uni, password);
 
         printTitle();
         
@@ -94,33 +105,22 @@ public class TextUi {
         System.out.println("**************");
         System.out.println("*Lisää kurssi*");
         System.out.println("**************");
-        
-
-        /*System.out.print("Syötä opiskelijanumero> ");
-        String studentId = sc.nextLine();
-        System.out.println("Olet lisäämässä uuden kurssin opiskelijalle: " + logic.getStudent(studentId).toString());
-        */
 
         System.out.print("Syötä kurssin id> ");
         int courseId = scint.nextInt();
         System.out.println("Kurssi-id: " + courseId);
 
-        
-
         System.out.print("Syötä kurssin nimi >");
         String courseName = sc.nextLine();
         System.out.println("Kurssin nimi: " + courseName);
-        
         
         System.out.print("Syötä kurssin opintopisteet> ");
         int credits = scint.nextInt();
         System.out.println("Opintopisteitä: " + credits);
         
-
         System.out.print("Syötä kurssin professorin/vastuuopettajan nimi >");
         String professor = sc.nextLine();
         System.out.println("Kurssin vastuuopettaja: " + professor);
-        
         
         Degree d = Degree.NULL;
         System.out.print("Kuuluuko kandi- vai maisteriohjelmaan? Kandi = k, maisteri = m >");
@@ -131,7 +131,6 @@ public class TextUi {
             d = Degree.MASTER;
         System.out.println("Kurssin taso: " + d);
         
-
         boolean finished=false;
 
         System.out.print("Onko kurssi suoritettu? Kyllä = k, ei = e >");
@@ -156,9 +155,10 @@ public class TextUi {
         System.out.println("****************************");
         System.out.println("*Listaa opiskelijan kurssit*");
         System.out.println("****************************");
-        /*System.out.print("Syötä opiskelijanumero >");
-        String studentId = sc.nextLine();*/
+
         logic.listCourses(logic.getLoggedInStudent());
+        System.out.println("*****************************");
+        logic.listCoursesNotPassed(logic.getLoggedInStudent());
         System.out.print("Syötä x jos haluat aloitusvalikkoon");
         String input = sc.nextLine();
         if(input.equals("x"))
@@ -169,8 +169,6 @@ public class TextUi {
         System.out.println("***************");
         System.out.println("*Poista kurssi*");
         System.out.println("***************");
-        /*System.out.print("Syötä opiskelijanumero >");
-        String studentId = sc.nextLine();*/
         
         logic.listCourses(logic.getLoggedInStudent());
         System.out.print("Syötä poistettavan kurssin id> ");

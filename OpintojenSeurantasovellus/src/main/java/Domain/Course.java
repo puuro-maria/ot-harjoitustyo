@@ -64,6 +64,6 @@ public class Course {
     public String toString(){
         return "Kurssi " + this.id + ", " + this.name + "\nOpintopisteet: " 
                 + this.credits + "\nVastuuopettaja: " + this.professor + 
-                "\nKurssi suoritettu: " + this.finished + "\n----------------------";
+                "\nKurssi suoritettu: " + this.finished + "\n----------------------\n";
     }
 }

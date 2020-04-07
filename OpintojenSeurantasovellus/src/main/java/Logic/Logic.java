@@ -22,7 +22,7 @@ public class Logic {
     
     public void addStudent(String name, String studentId, String uni, String password){
         
-        Student student = new Student(id, name, studentId, uni, "salasana");
+        Student student = new Student(id, name, studentId, uni, password);
         records.addStudent(student);
         this.students.add(student);
         id++;
@@ -46,6 +46,11 @@ public class Logic {
     public void listCourses(String studentId){
         Student s = getStudent(studentId);
         System.out.println(records.toString(s));
+    }
+    
+    public void listCoursesNotPassed(String studentId){
+        Student s = getStudent(studentId);
+        System.out.println(records.listCoursesNotPassed(s));
     }
     
     public void removeCourse(String studentId, int courseId){
@@ -80,6 +85,12 @@ public class Logic {
         Student s = getStudent(studentId);
         Course c = records.getCourse(s, courseId);
         c.finishCourse();
+    }
+    
+    public boolean confirmPassword(String password, String confirm){
+        if(password.equals(confirm))
+            return true;
+        return false;
     }
     
     public boolean checkLogIn(String studentId, String password){
