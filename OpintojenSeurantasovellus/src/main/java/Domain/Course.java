@@ -10,11 +10,11 @@ public class Course {
     private Semester semester;
     private boolean finished;
     
-    public Course(){
+    public Course() {
         
     }
     
-    public Course(int id, String name, int credits, String professor, Degree degree, boolean finished){
+    public Course(int id, String name, int credits, String professor, Degree degree, boolean finished) {
         this.id = id;
         this.name = name;
         this.credits = credits;
@@ -24,11 +24,11 @@ public class Course {
     }
     
     
-    public void finishCourse(){
+    public void finishCourse() {
         this.finished = true;
     }
     
-    public int getId(){
+    public int getId() {
         return this.id;
     }
     
@@ -36,38 +36,36 @@ public class Course {
         return this.name;
     }
     
-    public int getCredits(){
+    public int getCredits() {
         return this.credits;
     }
     
-    public String getProfessor(){
+    public String getProfessor() {
         return this.professor;
     }
     
-    public Degree getDegree(){
+    public Degree getDegree() {
         return this.degree;
     }
     
-    public boolean getFinished(){
+    public boolean getFinished() {
         return this.finished;
     }
     
-    public void setSemester(Semester s){
+    public void setSemester(Semester s) {
         this.semester = s;
     }
     
-    public Semester getSemester(){
+    public Semester getSemester() {
         return this.semester;
     }
     
     @Override
-    public String toString(){
+    public String toString() {
         return "Kurssi " + this.id + ", " + this.name + "\nOpintopisteet: " 
                 + this.credits + "\nVastuuopettaja: " + this.professor + 
                 "\nKurssi suoritettu: " + this.finished + "\n----------------------\n";
     }
 
-    public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 }

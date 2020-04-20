@@ -7,11 +7,11 @@ public class Student {
     private int id; //not studentid, database id
     private String name, uni, studentId, password;
     
-    public Student(){
+    public Student() {
         
     }
     
-    public Student(int id, String name, String studentId, String uni, String password){
+    public Student(int id, String name, String studentId, String uni, String password) {
         this.id = id;
         this.name = name;
         this.uni = uni;
@@ -19,32 +19,32 @@ public class Student {
         this.password = password;
     }
     
-    public int getId(){
+    public int getId() {
         return this.id;
     }
     
-    public String getName(){
+    public String getName() {
         return this.name;
     }
     
-    public String getUni(){
+    public String getUni() {
         return this.uni;
     }
     
-    public String getStudentId(){
+    public String getStudentId() {
         return this.studentId;
     }
     
-    public void setPassword(String newPassword){
+    public void setPassword(String newPassword) {
         this.password = newPassword;
     }
     
-    public String getPassword(){
+    public String getPassword() {
         return this.password;
     }
     
     @Override
-    public String toString(){
+    public String toString() {
         return "Opiskelija: " + this.name + "\nOpiskelijanumero: " + this.studentId + "\nYliopisto: " + this.uni;
     }
     
