@@ -1,4 +1,4 @@
-import Domain.*;
+import domain.Student;
 
 import org.junit.After;
 import org.junit.AfterClass;

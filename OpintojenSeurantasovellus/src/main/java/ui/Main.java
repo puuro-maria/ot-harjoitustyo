@@ -1,8 +1,8 @@
 
-package UI;
+package ui;
 
 import java.util.Scanner;
-import Logic.Logic;
+import logic.Logic;
 
 
 public class Main {

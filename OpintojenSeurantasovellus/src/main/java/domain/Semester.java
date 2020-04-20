@@ -1,5 +1,5 @@
 
-package Domain;
+package domain;
 
 
 public enum Semester {

@@ -1,7 +1,10 @@
 
-package Logic;
+package logic;
 
-import Domain.*;
+import domain.Course;
+import domain.Student;
+import domain.Degree;
+import domain.TranscriptOfRecords;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -55,9 +58,9 @@ public class Logic {
         Student s = getStudent(studentId);
         Course c = records.getCourse(s, courseId);
         
-        if (c.getFinished() == false)
+        if (c.getFinished() == false) {
             records.removeCourse(s, c);
-        else {
+        } else {
             System.out.println("Olet jo suorittanut kurssin, sitä ei voi poistaa rekisteristä.");
         }
     }
@@ -87,7 +90,7 @@ public class Logic {
     }
     
     public boolean confirmPassword(String password, String confirm) {
-        if (password.equals(confirm)){
+        if (password.equals(confirm)) {
             return true;
         }
         return false;
@@ -96,21 +99,20 @@ public class Logic {
     public boolean checkLogIn(String studentId, String password) {
         ArrayList<Student> studentList = getStudents();
         Student s;
-        for(Student st : studentList)
-            if(studentId.equals(st.getStudentId())) {
+        for (Student st : studentList) {
+            if (studentId.equals(st.getStudentId())) {
                 s = st;
-                if(s.getPassword().equals(password)) {
+                if (s.getPassword().equals(password)) {
                     loggedInStudent = studentId;
                     return true;
-                }
-                else {
+                } else {
                     System.out.println("Virheellinen salasana!");
                     return false;
                 }
-            }
-            else {
+            } else {
                 System.out.println("Opiskelijanumerolla " + studentId + " ei löytynyt tunnuksia.");
             }
+        }
         
         return false;
     }

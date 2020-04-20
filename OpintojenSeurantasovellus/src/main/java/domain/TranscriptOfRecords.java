@@ -1,5 +1,5 @@
 
-package Domain;
+package domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,8 +18,9 @@ public class TranscriptOfRecords {
     public ArrayList getStudents() {
         
         ArrayList<Student> students = new ArrayList<>();
-        for (Student s : transcript.keySet())
+        for (Student s : transcript.keySet()) {
             students.add(s);
+        }
         return students;
     }
     
@@ -50,7 +51,7 @@ public class TranscriptOfRecords {
         Course c = new Course();
         
         for (Course co : courses) {
-            if (co.getId() == courseId){
+            if (co.getId() == courseId) {
                 c = co;
                 break;
             }
@@ -59,7 +60,7 @@ public class TranscriptOfRecords {
         return c;
     }
     
-    public ArrayList<Course> getTranscript(Student s){ 
+    public ArrayList<Course> getTranscript(Student s) { 
             
         return this.transcript.get(s);
     }
@@ -69,8 +70,9 @@ public class TranscriptOfRecords {
         ArrayList<Course> c = transcript.get(s);
         String list = "Opiskelijan " + s.getName() + " " + s.getStudentId() + " kurssilistaus:\n";
         
-        for (Course co : c)
+        for (Course co : c) {
             list = list + co.toString();
+        }
         
         return list;
     }
@@ -80,9 +82,11 @@ public class TranscriptOfRecords {
         ArrayList<Course> c = transcript.get(s);
         String list = "Opiskelijan " + s.getName() + " " + s.getStudentId() + " suorittamattomat kurssit:\n";
         
-        for (Course co : c)
-            if (co.getFinished() == false)
+        for (Course co : c) {
+            if (co.getFinished() == false) {
                 list = list + co.toString();
+            }
+        }
             
         return list;
         

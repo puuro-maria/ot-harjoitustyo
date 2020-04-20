@@ -1,8 +1,8 @@
 
-package UI;
+package ui;
 
-import Logic.Logic;
-import Domain.Degree;
+import logic.Logic;
+import domain.Degree;
 
 import java.util.Scanner;
 

@@ -1,4 +1,5 @@
-import Domain.*;
+import domain.Course;
+import domain.Degree;
 
 import org.junit.After;
 import org.junit.AfterClass;

@@ -1,5 +1,6 @@
-import Logic.Logic;
-import Domain.*;
+import domain.Student;
+import domain.Degree;
+import logic.Logic;
 
 import org.junit.After;
 import org.junit.AfterClass;

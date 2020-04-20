@@ -1,5 +1,5 @@
 
-package Domain;
+package domain;
 
 
 public class Course {
@@ -32,7 +32,7 @@ public class Course {
         return this.id;
     }
     
-    public String getName(){
+    public String getName() {
         return this.name;
     }
     

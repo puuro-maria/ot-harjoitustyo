@@ -1,4 +1,7 @@
-import Domain.*;
+import domain.Student;
+import domain.Degree;
+import domain.TranscriptOfRecords;
+import domain.Course;
 import java.util.ArrayList;
 
 import org.junit.After;
