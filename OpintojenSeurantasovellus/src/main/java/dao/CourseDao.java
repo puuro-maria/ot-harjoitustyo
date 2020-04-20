@@ -8,7 +8,7 @@ public interface CourseDao {
     
     Course create(Course course) throws Exception;
     
-    Course findByCourseID(String courseId);
+    Course findByCourseId(String courseId);
     
     List<Course> getAll();
     
