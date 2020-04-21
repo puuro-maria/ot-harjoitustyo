@@ -4,7 +4,7 @@ Sovelluksessa voi pitää kirjaa omien opintojen nykytilanteesta ja suunnitelmis
 
 Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
-## Huom. tällä hetkellä DAO-pakkaus ei ole vielä käytössä sovelluksessa, sovellus ei vielä tallenna tietoja tiedostoon/tietokantaan.
+**Huom. tällä hetkellä DAO-pakkaus ei ole vielä käytössä sovelluksessa, sovellus ei vielä tallenna tietoja tiedostoon/tietokantaan.**
 
 - Java versio 11
 
