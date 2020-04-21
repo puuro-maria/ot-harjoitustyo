@@ -54,6 +54,11 @@ public class Logic {
         return records.listCoursesNotPassed(s);
     }
     
+    public String listCoursesPassed(String studentId) {
+        Student s = getStudent(studentId);
+        return records.listCoursesPassed(s);
+    }
+    
     public void removeCourse(String studentId, int courseId) {
         Student s = getStudent(studentId);
         Course c = records.getCourse(s, courseId);

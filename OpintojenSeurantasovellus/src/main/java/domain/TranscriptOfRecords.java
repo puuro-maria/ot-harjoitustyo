@@ -90,5 +90,20 @@ public class TranscriptOfRecords {
         return list;
         
     }
+    
+        public String listCoursesPassed(Student s) {
+        
+        ArrayList<Course> c = transcript.get(s);
+        String list = "Opiskelijan " + s.getName() + " " + s.getStudentId() + " suoritetut kurssit:\n";
+        
+        for (Course co : c) {
+            if (co.getFinished() == true) {
+                list = list + co.toString();
+            }
+        }
+            
+        return list;
+        
+    }
 
 }
