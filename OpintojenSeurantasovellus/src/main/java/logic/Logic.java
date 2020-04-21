@@ -25,11 +25,19 @@ public class Logic {
     }
     
     public void addStudent(String name, String studentId, String uni, String password) {
-        
-        Student student = new Student(id, name, studentId, uni, password);
-        records.addStudent(student);
-        this.students.add(student);
-        id++;
+        boolean alreadyReg = false;
+        for (Student s : students) {
+            if (s.getStudentId().equals(studentId)) {
+                System.out.println("!!!!!!!!!!Opiskelija " + studentId + " on jo rekisteröitynyt!!!!!!!");
+                alreadyReg = true;
+            }
+        }
+        if (alreadyReg == false) {
+            Student student = new Student(id, name, studentId, uni, password);
+            records.addStudent(student);
+            this.students.add(student);
+            id++;
+        }
         
     }
     
