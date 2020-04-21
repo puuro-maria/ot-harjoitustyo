@@ -14,9 +14,11 @@ Sovellus käynnistyy konsolissa komennolla:
 java -jar opSeurantaSovellus.jar
 ```
 
+- Java versio 11
+
 **Huom. tällä hetkellä DAO-pakkaus ei ole vielä käytössä sovelluksessa, sovellus ei vielä tallenna tietoja tiedostoon/tietokantaan.**
 
-- Java versio 11
+## Linkkejä dokumentaatioon
 
 [Vaatimusmäärittely](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
