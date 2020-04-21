@@ -1,6 +1,7 @@
 
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface TranscriptDao {
@@ -9,6 +10,6 @@ public interface TranscriptDao {
     
     List<String> findCoursesByStudent(String studentId);
     
-    List<String> findStudentsByCourses(String courseId);
+    HashMap<String, List<String>> getAll();
     
 }
