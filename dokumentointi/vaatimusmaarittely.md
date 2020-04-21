@@ -22,9 +22,9 @@ Sovellus koostuu neljästä näkymästä:
 
     - [ ] uniikki tunnus ja sille salasana 
 
-- [ ] Käyttäjä voi kirjautua sisään. 
+- [x] Käyttäjä voi kirjautua sisään. 
 
-    - [ ] onnistuu jos ja vain jos käyttäjätunnus on olemassa ja syötetty salasana vastaa käyttäjäkohtaista salasanaa 
+    - [x] onnistuu jos ja vain jos käyttäjätunnus on olemassa ja syötetty salasana vastaa käyttäjäkohtaista salasanaa 
     
     - [x] sovellus ilmoittaa jos virheellinen tunnus tai väärä salasana 
 
@@ -32,9 +32,9 @@ Sovellus koostuu neljästä näkymästä:
 
     - [ ] kurssit listataan heti kirjautumisen jälkeen näkymälle 
 
-- [ ] Käyttäjä voi tarkastella, mitä kursseja on suunnitellut käytäväksi 
+- [x] Käyttäjä voi tarkastella, mitä kursseja on suunnitellut käytäväksi 
 
-    - [ ] suunnitellut kurssit listataan samalle sivulle jo käytyjen kurssien kanssa, mutta ne ovat eri listalla kuin käydyt 
+    - [x] suunnitellut kurssit listataan samalle sivulle jo käytyjen kurssien kanssa, mutta ne ovat eri listalla kuin käydyt 
 
 - [x] Käyttäjä voi lisätä uuden kurssin 
 
@@ -54,4 +54,4 @@ Sovellus koostuu neljästä näkymästä:
 
     - [ ] kurssilistauksella on suunniteltujen kurssien kohdalla "merkitse suoritetuksi" 
 
-- [ ] Käyttäjä voi kirjautua ulos. 
+- [x] Käyttäjä voi kirjautua ulos. 

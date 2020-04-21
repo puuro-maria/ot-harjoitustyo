@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileTranscriptDao implements TranscriptDao{
+public class FileTranscriptDao implements TranscriptDao {
     
     private HashMap<String, List<String>> studentCourse;
     private String file;
@@ -30,7 +30,7 @@ public class FileTranscriptDao implements TranscriptDao{
                     studentCourse.put(parts[0], c);
                 }
             }
-        } catch(Exception e) { 
+        } catch (Exception e) { 
             FileWriter fWriter = new FileWriter(new File(file));
             fWriter.close();
         }

@@ -12,7 +12,7 @@ import java.io.FileWriter;
 
 public class FileCourseDao implements CourseDao {
     
-private List<Course> courses;
+    private List<Course> courses;
     private String file;
     
     public FileCourseDao(String file) throws Exception {
@@ -26,16 +26,16 @@ private List<Course> courses;
                 Course c = new Course(Integer.parseInt(parts[0]), parts[1], Integer.parseInt(parts[2]), parts[3], Degree.valueOf(parts[4]), Boolean.parseBoolean(parts[5]));
                 courses.add(c);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             FileWriter fWriter = new FileWriter(new File(file));
             fWriter.close();
         }
     }
     
-    private void save() throws Exception{
+    private void save() throws Exception {
         try (FileWriter fWriter = new FileWriter(new File(file))) {
             for (Course course : courses) {
-                fWriter.write(course.getId() + ";" + course.getName() + ";" + course.getCredits() + ";" + course.getProfessor()+ ";" + course.getDegree().name() + ";" + course.getFinished() + "\n");
+                fWriter.write(course.getId() + ";" + course.getName() + ";" + course.getCredits() + ";" + course.getProfessor() + ";" + course.getDegree().name() + ";" + course.getFinished() + "\n");
             }
         
         }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 import domain.Student;
 
 
-public class FileStudentDao implements StudentDao{
+public class FileStudentDao implements StudentDao {
     
     private List<Student> students;
     private String file;
@@ -25,13 +25,13 @@ public class FileStudentDao implements StudentDao{
                 Student s = new Student(Integer.parseInt(parts[0]), parts[1], parts[2], parts[3], parts[4]);
                 students.add(s);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             FileWriter fWriter = new FileWriter(new File(file));
             fWriter.close();
         }
     }
     
-    private void save() throws Exception{
+    private void save() throws Exception {
         try (FileWriter fWriter = new FileWriter(new File(file))) {
             for (Student student : students) {
                 fWriter.write(student.getId() + ";" + student.getName() + ";" + student.getStudentId() + ";" + student.getUni() + ";" + student.getPassword() + "\n");
