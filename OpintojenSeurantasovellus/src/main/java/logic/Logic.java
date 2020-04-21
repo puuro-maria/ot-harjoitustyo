@@ -7,8 +7,6 @@ import domain.Degree;
 import domain.TranscriptOfRecords;
 
 import java.util.ArrayList;
-import java.util.Set;
-
 
 
 public class Logic {
@@ -44,13 +42,10 @@ public class Logic {
     public void addCourse(String studentId, int courseId, String courseName, int credits, String professor, Degree degree, boolean finished) {
         
         Student student = getStudent(studentId);
-        
         Course c = new Course(courseId, courseName, credits, professor, degree, finished);
-        
         records.addCourse(student, c);
         
     }
-    
     
     public String listCourses(String studentId) {
         Student s = getStudent(studentId);
