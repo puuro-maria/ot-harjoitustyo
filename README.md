@@ -4,6 +4,16 @@ Sovelluksessa voi pitää kirjaa omien opintojen nykytilanteesta ja suunnitelmis
 
 Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
+## Viimeisin release
+
+[Viikon 5 release](https://github.com/puuro-maria/ot-harjoitustyo/releases/tag/viikko5)
+
+Sovellus käynnistyy konsolissa komennolla:
+
+```console
+java -jar opSeurantaSovellus.jar
+```
+
 **Huom. tällä hetkellä DAO-pakkaus ei ole vielä käytössä sovelluksessa, sovellus ei vielä tallenna tietoja tiedostoon/tietokantaan.**
 
 - Java versio 11
