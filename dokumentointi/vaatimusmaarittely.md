@@ -20,7 +20,7 @@ Sovellus koostuu neljästä näkymästä:
 
 - [x] Käyttäjä voi luoda käyttäjätunnuksen. 
 
-    - [ ] uniikki tunnus ja sille salasana 
+    - [x] uniikki tunnus ja sille salasana 
 
 - [x] Käyttäjä voi kirjautua sisään. 
 
