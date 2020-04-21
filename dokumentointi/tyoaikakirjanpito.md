@@ -8,5 +8,7 @@
 | 3.4.2020 | 2 | alustettu kirjautumisominaisuutta, mahdollista luoda tunnukset | 
 | 5.4.2020 | 2 | parannettu kirjautumisominaisuutta ja korjailtu käyttöliittymää järkevämmäksi |
 | 7.4.2020 | 3 | lisätty testejä ja tehty käytettävyyskorjauksia |
+| 20.4.2020 | 5 | Alustettu DAO-luokat, vaati hieman perehtymistä | 
+| 21.4.2020 | 4 | Testejä tehty lisää, koodia siistitty, dokumentaatiota lisätty |
 | | | |
-| YHTEENSÄ | 15,5 | |
+| YHTEENSÄ | 24,5 | |
