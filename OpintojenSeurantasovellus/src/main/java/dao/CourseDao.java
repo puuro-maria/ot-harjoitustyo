@@ -12,4 +12,5 @@ public interface CourseDao {
     
     List<Course> getAll();
     
+    void setDone(Course course) throws Exception;
 }

@@ -23,7 +23,7 @@ public class FileCourseDao implements CourseDao {
             Scanner sc = new Scanner(new File(file));
             while (sc.hasNextLine()) {
                 String[] parts = sc.nextLine().split(";");
-                Course c = new Course(Integer.parseInt(parts[0]), parts[1], Integer.parseInt(parts[2]), parts[3], Degree.valueOf(parts[4]), Boolean.parseBoolean(parts[5]));
+                Course c = new Course(parts[0], Integer.parseInt(parts[1]), parts[2], Integer.parseInt(parts[3]), parts[4], Degree.valueOf(parts[5]), Boolean.parseBoolean(parts[6]));
                 courses.add(c);
             }
         } catch (Exception e) {
@@ -35,7 +35,7 @@ public class FileCourseDao implements CourseDao {
     private void save() throws Exception {
         try (FileWriter fWriter = new FileWriter(new File(file))) {
             for (Course course : courses) {
-                fWriter.write(course.getId() + ";" + course.getName() + ";" + course.getCredits() + ";" + course.getProfessor() + ";" + course.getDegree().name() + ";" + course.getFinished() + "\n");
+                fWriter.write(course.getStudent() + ";" + course.getId() + ";" + course.getName() + ";" + course.getCredits() + ";" + course.getProfessor() + ";" + course.getDegree().name() + ";" + course.getFinished() + "\n");
             }
         
         }
@@ -56,10 +56,40 @@ public class FileCourseDao implements CourseDao {
     }
     
     @Override
+    public List<Course> findCoursesByStudentId(String studentId) {
+        List<Course> result = new ArrayList<>();
+        for (Course c : courses) {
+            if (c.getStudent().equals(studentId))
+                result.add(c);
+        }
+        return result;
+    }
+    
+    @Override
     public Course create(Course course) throws Exception {
         courses.add(course);
         save();
         return course;
+    }
+    
+    @Override
+    public void setDone(Course course, String studentId) throws Exception {
+        for (Course c : courses) {
+            if ((c.getId() == course.getId()) & c.getStudent().equals(studentId))
+                c.finishCourse();
+        }
+        
+        save();
+    }
+    
+    @Override
+    public void removeCourse(Course course, String studentId) throws Exception {
+        for (Course c : courses) {
+            if ((c.getId() == course.getId()) & c.getStudent().equals(studentId))
+                courses.remove(c);
+        }
+        
+        save();
     }
     
 }

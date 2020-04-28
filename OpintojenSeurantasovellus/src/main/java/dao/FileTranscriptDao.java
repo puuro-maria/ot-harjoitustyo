@@ -49,16 +49,23 @@ public class FileTranscriptDao implements TranscriptDao {
     }
     
     @Override
-    public void create(String studentId, String courseId) throws Exception {
+    public void create(String studentId) throws Exception {
+        
         if (studentCourse.get(studentId).isEmpty()) {
             List<String> courses = new ArrayList<>();
-            courses.add(courseId);
             studentCourse.put(studentId, courses);
-        } else {
+        }
+        
+        save();
+    }
+    
+    @Override
+    public void addCourse(String studentId, String courseId) throws Exception {
+        
             List<String> courses = studentCourse.get(studentId);
             courses.add(courseId);
             studentCourse.put(studentId, courses);
-        }
+        
         save();
     }
     
@@ -75,6 +82,11 @@ public class FileTranscriptDao implements TranscriptDao {
     @Override
     public HashMap<String, List<String>> getAll() {
         return studentCourse;
+    }
+    
+    @Override
+    public void removeCourse(String studentId, String courseId) throws Exception {
+        
     }
     
 }

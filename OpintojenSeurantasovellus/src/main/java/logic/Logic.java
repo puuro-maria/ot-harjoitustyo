@@ -4,28 +4,33 @@ package logic;
 import domain.Course;
 import domain.Student;
 import domain.Degree;
-import domain.TranscriptOfRecords;
+
+import dao.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class Logic {
     
     private static int id = 1;
-    TranscriptOfRecords records = new TranscriptOfRecords();
-    ArrayList<Student> students = new ArrayList<>();
     private static String loggedInStudent;
+    private CourseDao courseDao;
+    private StudentDao studentDao;
+    private TranscriptDao transcriptDao;
 
     
-    public Logic() {
-        TranscriptOfRecords records = new TranscriptOfRecords();
-        ArrayList<Student> students = new ArrayList<>();
+    public Logic(CourseDao courseDao, StudentDao studentDao, TranscriptDao transcriptDao) {
+        this.courseDao = courseDao;
+        this.studentDao = studentDao;
+        this.transcriptDao = transcriptDao;
     }
     
-    public void addStudent(String name, String studentId, String uni, String password) {
+    public boolean addStudent(String name, String studentId, String uni, String password) {
         boolean alreadyReg = false;
         
-        for (Student s : students) {
+        for (Student s : studentDao.getAll()) {
             if (s.getStudentId().equals(studentId)) {
                 System.out.println("\n!!!!!!!!!!Opiskelija " + studentId + " on jo rekisteröitynyt!!!!!!!\n");
                 alreadyReg = true;
@@ -33,29 +38,48 @@ public class Logic {
         }
         if (alreadyReg == false) {
             Student student = new Student(id, name, studentId, uni, password);
-            records.addStudent(student);
-            this.students.add(student);
+            try {
+            transcriptDao.create(studentId);
+            studentDao.create(student);
             id++;
+            } catch (Exception e) {
+                return false;
+            }
         }
-        
+        return true;
     }
     
-    public void addCourse(String studentId, int courseId, String courseName, int credits, String professor, Degree degree, boolean finished) {
+    public boolean addCourse(String studentId, int courseId, String courseName, int credits, String professor, Degree degree, boolean finished) {
         
-        Student student = getStudent(studentId);
         Course c = new Course(courseId, courseName, credits, professor, degree, finished);
-        records.addCourse(student, c);
-        
+        try {
+        transcriptDao.addCourse(studentId, Integer.toString(courseId));
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
     
     public String listCourses(String studentId) {
         Student s = getStudent(studentId);
-        return records.toString(s);
+        List<String> courselist = transcriptDao.findCoursesByStudent(studentId);
+        String courses = "";
+        for (String c : courselist) {
+            courses = courses + courseDao.findByCourseId(c).getName() + "\n";
+        }
+        return courses;
     }
     
     public String listCoursesNotPassed(String studentId) {
         Student s = getStudent(studentId);
-        return records.listCoursesNotPassed(s);
+        List<String> courselist = transcriptDao.findCoursesByStudent(studentId);
+        String courses = "";
+        for (String c : courselist) {
+            if (courseDao.findByCourseId(c).getFinished() == true) {
+                courses = courses + courseDao.findByCourseId(c).getName() + "\n";
+            }
+        }
+        return courses;
     }
     
     public String listCoursesPassed(String studentId) {
@@ -78,7 +102,7 @@ public class Logic {
         
         Student student = new Student();
         
-        for (Student s : this.students) {
+        for (Student s : studentDao.getAll()) {
             if (s.getStudentId().equals(studentId)) {
                 student = s;
                 break;
@@ -88,8 +112,8 @@ public class Logic {
         return student;
     }
     
-    public ArrayList getStudents() {
-        return records.getStudents();
+    public List<Student> getStudents() {
+        return studentDao.getAll();
     }
     
     public void finishCourse(int courseId, String studentId) {
