@@ -6,12 +6,14 @@ Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
 ## Viimeisin release
 
+[Viikon 6 release](https://github.com/puuro-maria/ot-harjoitustyo/releases/tag/viikko6)
+
 [Viikon 5 release](https://github.com/puuro-maria/ot-harjoitustyo/releases/tag/viikko5)
 
-Sovellus käynnistyy konsolissa komennolla:
+Sovellus (esim. viikon 6 versio) käynnistyy konsolissa komennolla:
 
 ```
-java -jar opSeurantaSovellus.jar
+java -jar viikko6.jar
 ```
 
 ## Komentorivitoiminnot
