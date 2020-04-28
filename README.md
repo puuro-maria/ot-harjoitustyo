@@ -23,22 +23,24 @@ git clone https://github.com/puuro-maria/ot-harjoitustyo
 cd ot-harjoitustyo/OpintojenSeurantasovellus
 ```
 
-Suoritettavan jar-tiedoston luominen:
+**Suoritettavan jar-tiedoston luominen:**
 ```
 mvn package
 ```
+Tämä generoi tiedoston *OpintojenSuunnittelusovellus-1.0-SNAPSHOT.jar* kansioon target.
 
-Testien ajaminen:
+**Testien ajaminen:**
 ```
 mvn test
 ```
 
-Jacoco-raportti eli testikattavuusraportti:
+**Jacoco-raportti eli testikattavuusraportti:**
 ```
 mvn jacoco:report
 ```
+Jacoco-raportti ilmestyy kansioon *target/site/jacoco* nimellä *index.html*.
 
-JavaDoc:
+**JavaDoc:**
 ```
 mvn javadoc:javadoc
 ```
