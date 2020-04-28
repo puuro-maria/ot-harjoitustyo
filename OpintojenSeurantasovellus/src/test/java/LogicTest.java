@@ -16,13 +16,15 @@ public class LogicTest {
     Logic logic;
     Student student;
     Course course;
+    FakeCourseDao fakeCourseDao = new FakeCourseDao();
+    FakeStudentDao fakeStudentDao = new FakeStudentDao();
     
     public LogicTest() {
     }
     
     @Before
     public void setUp() {
-        logic = new Logic();
+        logic = new Logic(fakeCourseDao, fakeStudentDao);
         logic.addStudent("Viivi", "12", "HY", "salasana");
         logic.addCourse("12", 11, "Tira", 10, "A.A.", Degree.BACHELOR, false);
     }

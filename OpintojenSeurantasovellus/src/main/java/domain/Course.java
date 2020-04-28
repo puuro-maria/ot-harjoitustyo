@@ -5,7 +5,7 @@ package domain;
 public class Course {
     
     private int credits, id;
-    private String name, professor;
+    private String name, professor, studentId;
     private Degree degree;
     private Semester semester;
     private boolean finished;
@@ -14,7 +14,8 @@ public class Course {
         
     }
     
-    public Course(int id, String name, int credits, String professor, Degree degree, boolean finished) {
+    public Course(String studentId, int id, String name, int credits, String professor, Degree degree, boolean finished) {
+        this.studentId = studentId;
         this.id = id;
         this.name = name;
         this.credits = credits;
@@ -60,9 +61,13 @@ public class Course {
         return this.semester;
     }
     
+    public String getStudent() {
+        return this.studentId;
+    }
+    
     @Override
     public String toString() {
-        return "Kurssi " + this.id + ", " + this.name + "\nOpintopisteet: " 
+        return "Opiskelija " + this.studentId + ", kurssi " + this.id + ", " + this.name + "\nOpintopisteet: " 
                 + this.credits + "\nVastuuopettaja: " + this.professor + 
                 "\nKurssi suoritettu: " + this.finished + "\n----------------------\n";
     }

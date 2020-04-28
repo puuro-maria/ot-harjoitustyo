@@ -10,7 +10,11 @@ public interface CourseDao {
     
     Course findByCourseId(String courseId);
     
+    List<Course> findCoursesByStudentId(String studentId);
+    
     List<Course> getAll();
     
-    void setDone(Course course) throws Exception;
+    void setDone(Course course, String studentId) throws Exception;
+    
+    void removeCourse(Course course, String studentId) throws Exception;
 }

@@ -18,13 +18,11 @@ public class Logic {
     private static String loggedInStudent;
     private CourseDao courseDao;
     private StudentDao studentDao;
-    private TranscriptDao transcriptDao;
 
     
-    public Logic(CourseDao courseDao, StudentDao studentDao, TranscriptDao transcriptDao) {
+    public Logic(CourseDao courseDao, StudentDao studentDao) {
         this.courseDao = courseDao;
         this.studentDao = studentDao;
-        this.transcriptDao = transcriptDao;
     }
     
     public boolean addStudent(String name, String studentId, String uni, String password) {
@@ -32,14 +30,12 @@ public class Logic {
         
         for (Student s : studentDao.getAll()) {
             if (s.getStudentId().equals(studentId)) {
-                System.out.println("\n!!!!!!!!!!Opiskelija " + studentId + " on jo rekisteröitynyt!!!!!!!\n");
                 alreadyReg = true;
             }
         }
         if (alreadyReg == false) {
             Student student = new Student(id, name, studentId, uni, password);
             try {
-            transcriptDao.create(studentId);
             studentDao.create(student);
             id++;
             } catch (Exception e) {
@@ -51,9 +47,9 @@ public class Logic {
     
     public boolean addCourse(String studentId, int courseId, String courseName, int credits, String professor, Degree degree, boolean finished) {
         
-        Course c = new Course(courseId, courseName, credits, professor, degree, finished);
+        Course c = new Course(studentId, courseId, courseName, credits, professor, degree, finished);
         try {
-        transcriptDao.addCourse(studentId, Integer.toString(courseId));
+        courseDao.create(c);
         } catch (Exception e) {
             return false;
         }
@@ -62,40 +58,51 @@ public class Logic {
     
     public String listCourses(String studentId) {
         Student s = getStudent(studentId);
-        List<String> courselist = transcriptDao.findCoursesByStudent(studentId);
+        List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
         String courses = "";
-        for (String c : courselist) {
-            courses = courses + courseDao.findByCourseId(c).getName() + "\n";
+        for (Course c : courselist) {
+            courses = courses + c.getName() + "\n";
         }
         return courses;
     }
     
     public String listCoursesNotPassed(String studentId) {
-        Student s = getStudent(studentId);
-        List<String> courselist = transcriptDao.findCoursesByStudent(studentId);
+        
+        List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
         String courses = "";
-        for (String c : courselist) {
-            if (courseDao.findByCourseId(c).getFinished() == true) {
-                courses = courses + courseDao.findByCourseId(c).getName() + "\n";
+        for (Course c : courselist) {
+            if (c.getFinished() == false) {
+                courses = courses + c.getName() + "\n";
             }
         }
         return courses;
     }
     
     public String listCoursesPassed(String studentId) {
-        Student s = getStudent(studentId);
-        return records.listCoursesPassed(s);
+        List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
+        String courses = "";
+        for (Course c : courselist) {
+            if (c.getFinished() == true) {
+                courses = courses + c.getName() + "\n";
+            }
+        }
+        return courses;
     }
     
-    public void removeCourse(String studentId, int courseId) {
-        Student s = getStudent(studentId);
-        Course c = records.getCourse(s, courseId);
+    public boolean removeCourse(String studentId, int courseId) {
+
+        Course c = courseDao.findByCourseId(Integer.toString(courseId));
         
         if (c.getFinished() == false) {
-            records.removeCourse(s, c);
+            try {
+                courseDao.removeCourse(c, studentId);
+            } catch (Exception e) {
+                return false;
+            }
         } else {
             System.out.println("Olet jo suorittanut kurssin, sitä ei voi poistaa rekisteristä.");
         }
+        return true;
     }
     
     public Student getStudent(String studentId) {
@@ -116,10 +123,22 @@ public class Logic {
         return studentDao.getAll();
     }
     
-    public void finishCourse(int courseId, String studentId) {
-        Student s = getStudent(studentId);
-        Course c = records.getCourse(s, courseId);
-        c.finishCourse();
+    public List<Course> getCourses(String studentId) {
+        return courseDao.findCoursesByStudentId(studentId);
+    }
+    
+    public boolean finishCourse(String studentId, Course course) {
+        for (Course c : courseDao.getAll()) {
+            if ((c.getId() == course.getId()) & c.getStudent().equals(studentId)) {
+                try {
+                    courseDao.setDone(c, studentId);
+                } catch (Exception e) {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
     }
     
     public boolean confirmPassword(String password, String confirm) {
@@ -130,7 +149,7 @@ public class Logic {
     }
     
     public boolean checkLogIn(String studentId, String password) {
-        ArrayList<Student> studentList = getStudents();
+        List<Student> studentList = getStudents();
         Student s;
         for (Student st : studentList) {
             if (studentId.equals(st.getStudentId())) {

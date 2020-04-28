@@ -1,17 +1,33 @@
 
 package ui;
 
+import dao.FileCourseDao;
+import dao.FileStudentDao;
 import logic.Logic;
 import domain.Degree;
+import java.io.FileInputStream;
 
 import java.util.Scanner;
+import java.util.Properties;
 
 
 public class TextUi {
     
     private Scanner sc = new Scanner(System.in);
     private Scanner scint = new Scanner(System.in);
-    private Logic logic = new Logic();
+    private Logic logic;
+    
+    public void init() throws Exception {
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+        String studentFile = properties.getProperty("studentFile");
+        String courseFile = properties.getProperty("courseFile");
+        
+        FileStudentDao studentDao = new FileStudentDao(studentFile);
+        FileCourseDao courseDao = new FileCourseDao(courseFile);
+        
+        logic = new Logic(courseDao, studentDao);
+    }
     
     public TextUi(Scanner sc) {
         this.sc = sc;
@@ -79,7 +95,8 @@ public class TextUi {
         String studentId = "";
         do {
             studentId = sc.nextLine();
-            System.out.println("\n!!!!!!!!!Opiskelijanumero saa sisältää vain numeroita!!!!!!!\nSyötä opiskelijanumero> \n");
+            if (!studentId.matches("[0-9]+"))
+                System.out.println("\n!!!!!!!!!Opiskelijanumero saa sisältää vain numeroita!!!!!!!\nSyötä opiskelijanumero> \n");
         } while (!studentId.matches("[0-9]+"));
         System.out.println("Opiskelijanumerosi: " + studentId);
         
