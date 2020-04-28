@@ -42,7 +42,13 @@ mvn jacoco:report
 ```
 Jacoco-raportti ilmestyy kansioon *target/site/jacoco* nimellä *index.html*.
 
-**JavaDoc:**
+**Checkstyle-raportin ajaminen:**
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
+Raportti ilmestyy kansioon *target/site* ja tiedoston nimi on *checkstyle.html*
+
+**JavaDoc: (ei vielä käytössä)**
 ```
 mvn javadoc:javadoc
 ```
