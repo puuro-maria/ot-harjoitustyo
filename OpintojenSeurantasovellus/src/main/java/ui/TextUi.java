@@ -76,7 +76,11 @@ public class TextUi {
         
 
         System.out.print("Syötä opiskelijanumero> ");
-        String studentId = sc.nextLine();
+        String studentId = "";
+        do {
+            studentId = sc.nextLine();
+            System.out.println("\n!!!!!!!!!Opiskelijanumero saa sisältää vain numeroita!!!!!!!\nSyötä opiskelijanumero> \n");
+        } while (!studentId.matches("[0-9]+"));
         System.out.println("Opiskelijanumerosi: " + studentId);
         
         String password = "a";
@@ -152,23 +156,23 @@ public class TextUi {
     }
     
     void listCourses() {
-        System.out.println("****************************");
+        System.out.println("\n****************************");
         System.out.println("*Listaa opiskelijan kurssit*");
         System.out.println("****************************");
 
         System.out.println(logic.listCourses(logic.getLoggedInStudent()));
         System.out.println("*****************************");
         System.out.println(logic.listCoursesNotPassed(logic.getLoggedInStudent()));
-        System.out.println("Syötä x jos haluat aloitusvalikkoon");
+        System.out.println("\nSyötä x jos haluat aloitusvalikkoon");
         String input = sc.nextLine();
         if (input.equals("x"))
             printNavigator();
     }
     
     void removeCourse() {
-        System.out.println("***************");
+        System.out.println("\n***************");
         System.out.println("*Poista kurssi*");
-        System.out.println("***************");
+        System.out.println("***************\n");
         
         logic.listCourses(logic.getLoggedInStudent());
         System.out.print("Syötä poistettavan kurssin id> ");
@@ -179,9 +183,9 @@ public class TextUi {
     }
     
     void logIn() {
-        System.out.println("*********************");
+        System.out.println("\n*********************");
         System.out.println("*Sisäänkirjautuminen*");
-        System.out.println("*********************");
+        System.out.println("*********************\n");
         System.out.println("Syötä opiskelijanumero> ");
         String studentId = sc.nextLine();
         System.out.println("Syötä salasana> ");

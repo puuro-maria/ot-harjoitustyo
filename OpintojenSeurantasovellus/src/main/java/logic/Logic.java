@@ -24,9 +24,10 @@ public class Logic {
     
     public void addStudent(String name, String studentId, String uni, String password) {
         boolean alreadyReg = false;
+        
         for (Student s : students) {
             if (s.getStudentId().equals(studentId)) {
-                System.out.println("!!!!!!!!!!Opiskelija " + studentId + " on jo rekisteröitynyt!!!!!!!");
+                System.out.println("\n!!!!!!!!!!Opiskelija " + studentId + " on jo rekisteröitynyt!!!!!!!\n");
                 alreadyReg = true;
             }
         }
