@@ -8,5 +8,6 @@
     <suppress files="ui/TextUi.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ui/UI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ui/Main.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="TranscriptOfRecordsTest" checks="[a-zA-Z0-9]*"/>
 
 </suppressions>

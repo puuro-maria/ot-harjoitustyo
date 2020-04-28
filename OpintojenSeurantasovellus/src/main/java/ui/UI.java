@@ -88,7 +88,7 @@ public class UI extends Application {
     public void start(Stage primary) throws Exception {
         
         VBox loginPane = new VBox(10);
-        HBox inputPane = new HBox(10);
+        VBox inputPane = new VBox(10);
         loginPane.setPadding(new Insets(10));
         Label loginLabel = new Label("Opiskelijanumero");
         loginLabel.setMinWidth(Region.USE_PREF_SIZE);
@@ -127,40 +127,40 @@ public class UI extends Application {
         
         loginPane.getChildren().addAll(loginMessage, inputPane, loginButton, createButton);
         
-        loginScene = new Scene(loginPane, 500, 500);
+        loginScene = new Scene(loginPane, 800, 800, Color.AQUA);
         
-        VBox newStudentPane = new VBox(10);
+        VBox newStudentPane = new VBox(20);
         
-        HBox newStudentIdPane = new HBox(10);
-        newStudentIdPane.setPadding(new Insets(10));
+        HBox newStudentIdPane = new HBox(20);
+        newStudentIdPane.setPadding(new Insets(20));
         TextField newStudentIdInput = new TextField();
         Label newStudentIdLabel = new Label("Opiskelijanumero");
         newStudentIdLabel.setMinWidth(Region.USE_PREF_SIZE);
         newStudentIdPane.getChildren().addAll(newStudentIdLabel, newStudentIdInput);
         
-        HBox newNamePane = new HBox(10);
-        newNamePane.setPadding(new Insets(10));
+        HBox newNamePane = new HBox(20);
+        newNamePane.setPadding(new Insets(20));
         TextField newNameInput = new TextField();
         Label newNameLabel = new Label("Opiskelijan nimi");
         newNameLabel.setMinWidth(Region.USE_PREF_SIZE);
         newNamePane.getChildren().addAll(newNameLabel, newNameInput);
         
-        HBox uniPane = new HBox(10);
-        uniPane.setPadding(new Insets(10));
+        HBox uniPane = new HBox(20);
+        uniPane.setPadding(new Insets(20));
         TextField uniInput = new TextField();
         Label uniLabel = new Label("Oppilaitos");
         uniLabel.setMinWidth(Region.USE_PREF_SIZE);
         uniPane.getChildren().addAll(uniLabel, uniInput);
         
-        HBox newPasswordPane = new HBox(10);
-        newPasswordPane.setPadding(new Insets(10));
+        HBox newPasswordPane = new HBox(20);
+        newPasswordPane.setPadding(new Insets(20));
         PasswordField newPasswordInput = new PasswordField();
         Label newPasswordLabel = new Label("Salasana");
         newPasswordLabel.setMinWidth(Region.USE_PREF_SIZE);
         newPasswordPane.getChildren().addAll(newPasswordLabel, newPasswordInput);
         
-        HBox confirmPane = new HBox(10);
-        confirmPane.setPadding(new Insets(10));
+        HBox confirmPane = new HBox(20);
+        confirmPane.setPadding(new Insets(20));
         PasswordField confirmInput = new PasswordField();
         Label confirmLabel = new Label("Toista salasana");
         confirmLabel.setMinWidth(Region.USE_PREF_SIZE);
@@ -169,7 +169,7 @@ public class UI extends Application {
         Label studentCreationMessage = new Label();
         
         Button createStudentButton = new Button("Luo tunnus");
-        createStudentButton.setPadding(new Insets(10));
+        createStudentButton.setPadding(new Insets(20));
         
         createStudentButton.setOnAction(e->{
             String newStudentId = newStudentIdInput.getText();
@@ -185,6 +185,7 @@ public class UI extends Application {
                 if (logic.addStudent(newName, newStudentId, newUni, password)) {
                     studentCreationMessage.setText("Uusi käyttäjä luotu");
                     studentCreationMessage.setTextFill(Color.GREEN);
+                    primary.setScene(loginScene);
                 } else {
                     studentCreationMessage.setText("Opiskelijanumerolla on jo tunnus!");
                     studentCreationMessage.setTextFill(Color.RED);
@@ -198,13 +199,13 @@ public class UI extends Application {
         
         newStudentPane.getChildren().addAll(studentCreationMessage, newStudentIdPane, newNamePane, uniPane, newPasswordPane, confirmPane, createStudentButton);
         
-        newStudentScene = new Scene(newStudentPane, 500, 500);
+        newStudentScene = new Scene(newStudentPane, 800, 800, Color.AQUA);
         
         ScrollPane courseScrollBar = new ScrollPane();
         BorderPane mainPane = new BorderPane(courseScrollBar);
-        listScene = new Scene(mainPane, 500, 500);
+        listScene = new Scene(mainPane, 800, 800);
         
-        HBox menuPane = new HBox(10);
+        HBox menuPane = new HBox(20);
         Region menuSpacer = new Region();
         HBox.setHgrow(menuSpacer, Priority.ALWAYS);
         Button logoutButton = new Button("Kirjaudu ulos");
@@ -215,7 +216,7 @@ public class UI extends Application {
         });
         
         Label createCourseMessage = new Label();
-        VBox createCourseForm = new VBox(10);
+        VBox createCourseForm = new VBox(20);
         Button createCourse = new Button("Lisää kurssi");
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
@@ -223,36 +224,39 @@ public class UI extends Application {
         TextField courseIdInput = new TextField();
         Label courseIdLabel = new Label("Kurssinumero");
         courseIdLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseIdPane = new HBox(10);
-        courseIdPane.setPadding(new Insets(10));
+        HBox courseIdPane = new HBox(20);
+        courseIdPane.setPadding(new Insets(20));
         courseIdPane.getChildren().addAll(courseIdLabel, courseIdInput);
         
         TextField courseNameInput= new TextField();
         Label courseNameLabel = new Label("Kurssin nimi");
         courseNameLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseNamePane = new HBox(10);
-        courseNamePane.setPadding(new Insets(10));
+        HBox courseNamePane = new HBox(20);
+        courseNamePane.setPadding(new Insets(20));
         courseNamePane.getChildren().addAll(courseNameLabel, courseNameInput);
         
         TextField courseCreditInput = new TextField();
         Label courseCreditLabel = new Label("Opintopisteet");
         courseCreditLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseCreditPane = new HBox(10);
-        courseCreditPane.setPadding(new Insets(10));
+        HBox courseCreditPane = new HBox(20);
+        courseCreditPane.setPadding(new Insets(20));
         courseCreditPane.getChildren().addAll(courseCreditLabel, courseCreditInput);
         
         TextField courseProfInput = new TextField();
         Label courseProfLabel = new Label("Kurssin vastuuopettaja"); 
         courseProfLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseProfPane = new HBox(10);
-        courseProfPane.setPadding(new Insets(10));
+        HBox courseProfPane = new HBox(20);
+        courseProfPane.setPadding(new Insets(20));
         courseProfPane.getChildren().addAll(courseProfLabel, courseProfInput);
 
         
         ChoiceBox degreeBox = new ChoiceBox();
+        Label courseDegreeLabel = new Label("Kurssi kuuluu tutkintoon"); 
+        courseDegreeLabel.setMinWidth(Region.USE_PREF_SIZE);
+        HBox courseDegreePane = new HBox(20);
         degreeBox.getItems().add("Kandidaatti");
         degreeBox.getItems().add("Maisteri");
-
+        courseDegreePane.getChildren().addAll(courseDegreeLabel, degreeBox);
         CheckBox passed = new CheckBox("Kurssi suoritettu");
         
         createCourse.setOnAction(e->{
@@ -281,9 +285,9 @@ public class UI extends Application {
             redrawCourseList(logic.getLoggedInStudent());
         });
         
-        createCourseForm.getChildren().addAll(createCourseMessage, spacer, courseIdPane, courseNamePane, courseCreditPane, courseProfPane, degreeBox, passed, createCourse);
+        createCourseForm.getChildren().addAll(createCourseMessage, spacer, courseIdPane, courseNamePane, courseCreditPane, courseProfPane, courseDegreePane, passed, createCourse);
         
-        courseNodes = new VBox(10);
+        courseNodes = new VBox(20);
         courseNodes.setMaxWidth(500);
         courseNodes.setMaxHeight(500);
         redrawCourseList(logic.getLoggedInStudent());
@@ -306,6 +310,7 @@ public class UI extends Application {
     
     @Override
     public void stop(){
+        logic.logOut();
         System.out.println("Suljetaan sovellus");
         Platform.exit();
         System.exit(0);
