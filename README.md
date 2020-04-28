@@ -10,19 +10,50 @@ Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
 Sovellus käynnistyy konsolissa komennolla:
 
-```console
+```
 java -jar opSeurantaSovellus.jar
 ```
 
-- Java versio 11
+## Komentorivitoiminnot
 
-**Huom. tällä hetkellä DAO-pakkaus ei ole vielä käytössä sovelluksessa, sovellus ei vielä tallenna tietoja tiedostoon/tietokantaan.**
+Lataa paketti: 
+```
+git clone https://github.com/puuro-maria/ot-harjoitustyo
 
-## Linkkejä dokumentaatioon
+cd ot-harjoitustyo/OpintojenSeurantasovellus
+```
+
+Suoritettavan jar-tiedoston luominen:
+```
+mvn package
+```
+
+Testien ajaminen:
+```
+mvn test
+```
+
+Jacoco-raportti eli testikattavuusraportti:
+```
+mvn jacoco:report
+```
+
+JavaDoc:
+```
+mvn javadoc:javadoc
+```
+
+## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
 
 [Arkkitehtuuri](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
 
 [Työaikakirjanpito](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)
+
+## Muuta
+
+- Java versio 11
+
+**Huom. tällä hetkellä DAO-pakkaus ei ole vielä käytössä sovelluksessa, sovellus ei vielä tallenna tietoja tiedostoon/tietokantaan.**
 
