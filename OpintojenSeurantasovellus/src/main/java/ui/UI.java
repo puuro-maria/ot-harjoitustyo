@@ -91,7 +91,9 @@ public class UI extends Application {
         HBox inputPane = new HBox(10);
         loginPane.setPadding(new Insets(10));
         Label loginLabel = new Label("Opiskelijanumero");
+        loginLabel.setMinWidth(Region.USE_PREF_SIZE);
         Label passwordLabel = new Label("Salasana");
+        passwordLabel.setMinWidth(Region.USE_PREF_SIZE);
         TextField studentIdInput = new TextField();
         PasswordField passwordInput = new PasswordField();
         
@@ -133,35 +135,35 @@ public class UI extends Application {
         newStudentIdPane.setPadding(new Insets(10));
         TextField newStudentIdInput = new TextField();
         Label newStudentIdLabel = new Label("Opiskelijanumero");
-        newStudentIdLabel.setPrefWidth(200);
+        newStudentIdLabel.setMinWidth(Region.USE_PREF_SIZE);
         newStudentIdPane.getChildren().addAll(newStudentIdLabel, newStudentIdInput);
         
         HBox newNamePane = new HBox(10);
         newNamePane.setPadding(new Insets(10));
         TextField newNameInput = new TextField();
         Label newNameLabel = new Label("Opiskelijan nimi");
-        newNameLabel.setPrefWidth(200);
+        newNameLabel.setMinWidth(Region.USE_PREF_SIZE);
         newNamePane.getChildren().addAll(newNameLabel, newNameInput);
         
         HBox uniPane = new HBox(10);
         uniPane.setPadding(new Insets(10));
         TextField uniInput = new TextField();
         Label uniLabel = new Label("Oppilaitos");
-        uniLabel.setPrefWidth(200);
+        uniLabel.setMinWidth(Region.USE_PREF_SIZE);
         uniPane.getChildren().addAll(uniLabel, uniInput);
         
         HBox newPasswordPane = new HBox(10);
         newPasswordPane.setPadding(new Insets(10));
         PasswordField newPasswordInput = new PasswordField();
         Label newPasswordLabel = new Label("Salasana");
-        newPasswordLabel.setPrefWidth(200);
+        newPasswordLabel.setMinWidth(Region.USE_PREF_SIZE);
         newPasswordPane.getChildren().addAll(newPasswordLabel, newPasswordInput);
         
         HBox confirmPane = new HBox(10);
         confirmPane.setPadding(new Insets(10));
         PasswordField confirmInput = new PasswordField();
         Label confirmLabel = new Label("Toista salasana");
-        confirmLabel.setPrefWidth(200);
+        confirmLabel.setMinWidth(Region.USE_PREF_SIZE);
         confirmPane.getChildren().addAll(confirmLabel, confirmInput);
         
         Label studentCreationMessage = new Label();
@@ -213,31 +215,35 @@ public class UI extends Application {
         });
         
         Label createCourseMessage = new Label();
-        HBox createCourseForm = new HBox(10);
+        VBox createCourseForm = new VBox(10);
         Button createCourse = new Button("Lisää kurssi");
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         
         TextField courseIdInput = new TextField();
         Label courseIdLabel = new Label("Kurssinumero");
+        courseIdLabel.setMinWidth(Region.USE_PREF_SIZE);
         HBox courseIdPane = new HBox(10);
         courseIdPane.setPadding(new Insets(10));
         courseIdPane.getChildren().addAll(courseIdLabel, courseIdInput);
         
         TextField courseNameInput= new TextField();
         Label courseNameLabel = new Label("Kurssin nimi");
+        courseNameLabel.setMinWidth(Region.USE_PREF_SIZE);
         HBox courseNamePane = new HBox(10);
         courseNamePane.setPadding(new Insets(10));
         courseNamePane.getChildren().addAll(courseNameLabel, courseNameInput);
         
         TextField courseCreditInput = new TextField();
         Label courseCreditLabel = new Label("Opintopisteet");
+        courseCreditLabel.setMinWidth(Region.USE_PREF_SIZE);
         HBox courseCreditPane = new HBox(10);
         courseCreditPane.setPadding(new Insets(10));
         courseCreditPane.getChildren().addAll(courseCreditLabel, courseCreditInput);
         
         TextField courseProfInput = new TextField();
         Label courseProfLabel = new Label("Kurssin vastuuopettaja"); 
+        courseProfLabel.setMinWidth(Region.USE_PREF_SIZE);
         HBox courseProfPane = new HBox(10);
         courseProfPane.setPadding(new Insets(10));
         courseProfPane.getChildren().addAll(courseProfLabel, courseProfInput);
@@ -278,12 +284,12 @@ public class UI extends Application {
         createCourseForm.getChildren().addAll(createCourseMessage, spacer, courseIdPane, courseNamePane, courseCreditPane, courseProfPane, degreeBox, passed, createCourse);
         
         courseNodes = new VBox(10);
-        courseNodes.setMaxWidth(280);
-        courseNodes.setMaxHeight(280);
+        courseNodes.setMaxWidth(500);
+        courseNodes.setMaxHeight(500);
         redrawCourseList(logic.getLoggedInStudent());
         
         courseScrollBar.setContent(courseNodes);
-        mainPane.setBottom(createCourseForm);
+        mainPane.setCenter(createCourseForm);
         mainPane.setTop(menuPane);
         
         primary.setTitle("Opintojen seurantasovellus");
