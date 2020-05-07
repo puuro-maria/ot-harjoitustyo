@@ -3,3 +3,4 @@
 111;123;kurssi;2;ope;BACHELOR;true
 111;123;kb;9;ka;BACHELOR;false
 111;90;kurso;9;k;MASTER;false
+000;10;Tira;10;Ope;BACHELOR;true
