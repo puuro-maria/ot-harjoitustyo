@@ -10,7 +10,7 @@ public class FakeCourseDao implements CourseDao {
     List<Course> courses = new ArrayList<>();
     
     public FakeCourseDao() {
-        courses.add(new Course("1", 1, "Kurssi", 5, "prof", Degree.BACHELOR, true));
+        courses.add(new Course("12", 1, "Kurssi", 5, "prof", Degree.BACHELOR, false));
     }
     
     @Override

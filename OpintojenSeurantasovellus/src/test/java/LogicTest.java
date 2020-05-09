@@ -36,7 +36,7 @@ public class LogicTest {
     public void noDuplicateStudents() {
         logic.addStudent("Viiva", "12", "HY", "salasana");
         String students = logic.getStudent("12").getName();
-        assertEquals("Viivi", students);
+        assertEquals("Feikki", students);
     }
     
     @Test

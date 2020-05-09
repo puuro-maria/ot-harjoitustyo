@@ -9,7 +9,7 @@ public class FakeStudentDao implements StudentDao {
     List<Student> students = new ArrayList<>();
     
     public FakeStudentDao(){
-        students.add(new Student(1, "Feikki", "1", "HY", "salasana"));
+        students.add(new Student(1, "Feikki", "12", "HY", "salasana"));
     }
 
     @Override
