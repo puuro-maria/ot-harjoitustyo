@@ -4,3 +4,5 @@
 111;123;kb;9;ka;BACHELOR;false
 111;90;kurso;9;k;MASTER;false
 000;10;Tira;10;Ope;BACHELOR;true
+000;44;tiira;10;reksi;MASTER;true
+000;1;k;5;jj;MASTER;true

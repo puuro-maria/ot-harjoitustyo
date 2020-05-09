@@ -185,6 +185,7 @@ public class UI extends Application {
                 if (logic.addStudent(newName, newStudentId, newUni, password)) {
                     studentCreationMessage.setText("Uusi käyttäjä luotu");
                     studentCreationMessage.setTextFill(Color.GREEN);
+                    loginMessage.setText("");
                     primary.setScene(loginScene);
                 } else {
                     studentCreationMessage.setText("Opiskelijanumerolla on jo tunnus!");
@@ -199,7 +200,7 @@ public class UI extends Application {
         
         newStudentPane.getChildren().addAll(studentCreationMessage, newStudentIdPane, newNamePane, uniPane, newPasswordPane, confirmPane, createStudentButton);
         
-        newStudentScene = new Scene(newStudentPane, 800, 800, Color.AQUA);
+        newStudentScene = new Scene(newStudentPane, 400, 400, Color.AQUA);
         
         ScrollPane courseScrollBar = new ScrollPane();
         BorderPane mainPane = new BorderPane(courseScrollBar);
@@ -278,11 +279,11 @@ public class UI extends Application {
             if (logic.addCourse(logic.getLoggedInStudent(), courseId, courseName, credits, prof, degree, finished)) {
                 createCourseMessage.setText("Kurssi lisätty opiskelijalle" + logic.getLoggedInStudent());
                 createCourseMessage.setTextFill(Color.GREEN);
+                redrawCourseList(logic.getLoggedInStudent());
             } else {
                 createCourseMessage.setText("Tarkista, että kaikki kentät on täytetty!");
                 createCourseMessage.setTextFill(Color.RED);
             }
-            redrawCourseList(logic.getLoggedInStudent());
         });
         
         createCourseForm.getChildren().addAll(createCourseMessage, spacer, courseIdPane, courseNamePane, courseCreditPane, courseProfPane, courseDegreePane, passed, createCourse);
@@ -293,7 +294,7 @@ public class UI extends Application {
         redrawCourseList(logic.getLoggedInStudent());
         
         courseScrollBar.setContent(courseNodes);
-        mainPane.setCenter(createCourseForm);
+        mainPane.setBottom(createCourseForm);
         mainPane.setTop(menuPane);
         
         primary.setTitle("Opintojen seurantasovellus");

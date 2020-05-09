@@ -1,5 +1,6 @@
 import domain.Course;
 import domain.Degree;
+import domain.Semester;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -24,10 +25,21 @@ public class CourseTest {
     }
     
     @Test
-    public void constructorAndtoStringWorks(){
+    public void constructorAndtoStringWorks() {
         String print = c.toString();
         assertEquals("Opiskelija 12, kurssi 2, OTM\nOpintopisteet: 5\nVastuuopettaja: Opettaja Opetin\nKurssi suoritettu: false\n----------------------\n", print);
     }
     
-
+    @Test
+    public void finishCourseWorks() {
+        c.finishCourse();
+        assertTrue(c.getFinished());
+    }
+    
+    @Test
+    public void setSemesterWorks()  {
+        c.setSemester(Semester.SYKSY);
+        assertTrue(c.getSemester() == Semester.SYKSY);
+    }
+    
 }
