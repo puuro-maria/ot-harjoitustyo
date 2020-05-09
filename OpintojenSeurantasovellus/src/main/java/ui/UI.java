@@ -163,7 +163,7 @@ public class UI extends Application {
         
         loginPane.getChildren().addAll(loginMessage, inputPane, loginButton, createButton);
         
-        loginScene = new Scene(loginPane, 800, 800, Color.AQUA);
+        loginScene = new Scene(loginPane, 500, 500);
         
         VBox newStudentPane = new VBox(20);
         
