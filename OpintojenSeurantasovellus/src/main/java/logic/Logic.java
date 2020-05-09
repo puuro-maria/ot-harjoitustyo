@@ -6,9 +6,8 @@ import domain.Student;
 import domain.Degree;
 
 import dao.*;
-
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
 
 
@@ -70,24 +69,26 @@ public class Logic {
     public List<Course> listCoursesNotPassed(String studentId) {
         
         List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
+        List<Course> notPassed = new ArrayList<>();
 
         for (Course c : courselist) {
-            if (c.getFinished() == true) {
-                courselist.remove(c);
+            if (c.getFinished() == false) {
+                notPassed.add(c);
             }
         }
-        return courselist;
+        return notPassed;
     }
     
     public List<Course> listCoursesPassed(String studentId) {
         List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
-
+        List<Course> passed = new ArrayList<>();
+        
         for (Course c : courselist) {
-            if (c.getFinished() != true) {
-                courselist.remove(c);
+            if (c.getFinished() == true) {
+                passed.add(c);
             }
         }
-        return courselist;
+        return passed;
     }
     
     public boolean removeCourse(String studentId, int courseId) {

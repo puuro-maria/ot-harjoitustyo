@@ -95,6 +95,28 @@ public class UI extends Application {
         });
 
     }
+    
+    public void drawCoursesNotPassed(String studentId) {
+        courseNodes.getChildren().clear();
+        
+        List<Course> courses = logic.listCoursesNotPassed(studentId);
+
+        courses.forEach(course ->{
+            courseNodes.getChildren().add(createCourseNode(course, studentId));
+        });
+
+    }
+    
+    public void drawCoursesPassed(String studentId) {
+        courseNodes.getChildren().clear();
+        
+        List<Course> courses = logic.listCoursesPassed(studentId);
+
+        courses.forEach(course ->{
+            courseNodes.getChildren().add(createCourseNode(course, studentId));
+        });
+
+    }
 
     @Override
     public void start(Stage primary) throws Exception {
@@ -212,7 +234,7 @@ public class UI extends Application {
         
         newStudentPane.getChildren().addAll(studentCreationMessage, newStudentIdPane, newNamePane, uniPane, newPasswordPane, confirmPane, createStudentButton);
         
-        newStudentScene = new Scene(newStudentPane, 800, 800, Color.AQUA);
+        newStudentScene = new Scene(newStudentPane, 800, 800);
         
         ScrollPane courseScrollBar = new ScrollPane();
         BorderPane mainPane = new BorderPane(courseScrollBar);
@@ -222,10 +244,26 @@ public class UI extends Application {
         Region menuSpacer = new Region();
         HBox.setHgrow(menuSpacer, Priority.ALWAYS);
         Button logoutButton = new Button("Kirjaudu ulos");
-        menuPane.getChildren().addAll(menuLabel, menuSpacer, logoutButton);
+        Button listNotPassed = new Button("Suorittamattomat");
+        Button listPassed = new Button("Suoritetut");
+        Button listAll = new Button("Kaikki");
+        menuPane.getChildren().addAll(menuLabel, menuSpacer, listAll, listNotPassed, listPassed, logoutButton);
+        
         logoutButton.setOnAction(e->{
             logic.logOut();
             primary.setScene(loginScene);
+        });
+        
+        listNotPassed.setOnAction(e->{
+            drawCoursesNotPassed(logic.getLoggedInStudent());
+        });
+        
+        listPassed.setOnAction(e->{
+            drawCoursesPassed(logic.getLoggedInStudent());
+        });
+        
+        listAll.setOnAction(e->{
+            redrawCourseList(logic.getLoggedInStudent());
         });
         
         Label createCourseMessage = new Label();
@@ -302,7 +340,7 @@ public class UI extends Application {
         createCourseForm.getChildren().addAll(createCourseMessage, spacer, courseIdPane, courseNamePane, courseCreditPane, courseProfPane, courseDegreePane, passed, createCourse);
         
         courseNodes = new VBox(20);
-        courseNodes.setMaxWidth(500);
+        courseNodes.setMaxWidth(800);
         courseNodes.setMaxHeight(500);
         redrawCourseList(logic.getLoggedInStudent());
         
