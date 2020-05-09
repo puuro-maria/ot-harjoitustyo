@@ -34,7 +34,6 @@ public class UI extends Application {
     
     private Scene listScene;
     private Scene newStudentScene;
-    private Scene newCourseScene;
     private Scene loginScene;
     
     private VBox courseNodes;
@@ -68,27 +67,33 @@ public class UI extends Application {
         String labelText = course.getName() +  ", " + course.getCredits() + " op., suoritettu: " + course.getFinished() + ", tutkinto: " + degree;
         Label label = new Label(labelText);
         label.setMinHeight(28);
+
         Button button = new Button("Course passed");
         button.setOnAction(e->{
         logic.finishCourse(studentId, course);
         redrawCourseList(studentId);
         });
-        
+
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         box.setPadding(new Insets(0,5,0,5));
         
-        box.getChildren().addAll(label, spacer, button);
+        box.getChildren().addAll(label, spacer);
+        if (course.getFinished() == false) {
+            box.getChildren().addAll(button);
+        }
         return box;
     }
     
     public void redrawCourseList(String studentId) {
         courseNodes.getChildren().clear();
         
-        List<Course> allcourses = logic.getCourses(studentId);
-        allcourses.forEach(course ->{
+        List<Course> courses = logic.getCourses(studentId);
+
+        courses.forEach(course ->{
             courseNodes.getChildren().add(createCourseNode(course, studentId));
         });
+
     }
 
     @Override
@@ -194,12 +199,12 @@ public class UI extends Application {
                     studentCreationMessage.setTextFill(Color.GREEN);
                     loginMessage.setText("");
                     primary.setScene(loginScene);
-                } else {
+                } else if (logic.addStudent(newName, newStudentId, newUni, password) == false) {
                     studentCreationMessage.setText("Opiskelijanumerolla on jo tunnus!");
                     studentCreationMessage.setTextFill(Color.RED);
                 }
                 
-            } else {
+            } else if (logic.confirmPassword(password, confirm) == false) {
                 studentCreationMessage.setText("Syöttämäsi salasanat eivät täsmänneet!");
                 studentCreationMessage.setTextFill(Color.RED);
             }
@@ -207,7 +212,7 @@ public class UI extends Application {
         
         newStudentPane.getChildren().addAll(studentCreationMessage, newStudentIdPane, newNamePane, uniPane, newPasswordPane, confirmPane, createStudentButton);
         
-        newStudentScene = new Scene(newStudentPane, 400, 400, Color.AQUA);
+        newStudentScene = new Scene(newStudentPane, 800, 800, Color.AQUA);
         
         ScrollPane courseScrollBar = new ScrollPane();
         BorderPane mainPane = new BorderPane(courseScrollBar);
@@ -287,6 +292,7 @@ public class UI extends Application {
                 createCourseMessage.setText("Kurssi lisätty opiskelijalle" + logic.getLoggedInStudent());
                 createCourseMessage.setTextFill(Color.GREEN);
                 redrawCourseList(logic.getLoggedInStudent());
+                createCourseForm.getChildren().clear();
             } else {
                 createCourseMessage.setText("Tarkista, että kaikki kentät on täytetty!");
                 createCourseMessage.setTextFill(Color.RED);

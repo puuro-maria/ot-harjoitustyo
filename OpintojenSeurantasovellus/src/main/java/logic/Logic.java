@@ -31,6 +31,7 @@ public class Logic {
         for (Student s : studentDao.getAll()) {
             if (s.getStudentId().equals(studentId)) {
                 alreadyReg = true;
+                return false;
             }
         }
         if (alreadyReg == false) {
@@ -66,27 +67,27 @@ public class Logic {
         return courses;
     }
     
-    public String listCoursesNotPassed(String studentId) {
+    public List<Course> listCoursesNotPassed(String studentId) {
         
         List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
-        String courses = "";
-        for (Course c : courselist) {
-            if (c.getFinished() == false) {
-                courses = courses + c.getName() + "\n";
-            }
-        }
-        return courses;
-    }
-    
-    public String listCoursesPassed(String studentId) {
-        List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
-        String courses = "";
+
         for (Course c : courselist) {
             if (c.getFinished() == true) {
-                courses = courses + c.getName() + "\n";
+                courselist.remove(c);
             }
         }
-        return courses;
+        return courselist;
+    }
+    
+    public List<Course> listCoursesPassed(String studentId) {
+        List<Course> courselist = courseDao.findCoursesByStudentId(studentId);
+
+        for (Course c : courselist) {
+            if (c.getFinished() != true) {
+                courselist.remove(c);
+            }
+        }
+        return courselist;
     }
     
     public boolean removeCourse(String studentId, int courseId) {

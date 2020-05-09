@@ -8,3 +8,4 @@
 000;1;k;5;jj;MASTER;true
 000;12;tietokantojen perusteet;5;en tiedä;BACHELOR;true
 000;11111;aa;5;e;MASTER;true
+000;90;Kurssin nimi;9;ope;MASTER;false
