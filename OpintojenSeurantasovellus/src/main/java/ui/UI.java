@@ -59,7 +59,14 @@ public class UI extends Application {
     
     public Node createCourseNode(Course course, String studentId) {
         HBox box = new HBox(10);
-        Label label = new Label(course.getName());
+        String degree;
+        if(course.getDegree() == Degree.BACHELOR) {
+            degree = "kandi";
+        } else {
+            degree = "maisteri";
+        }
+        String labelText = course.getName() +  ", " + course.getCredits() + " op., suoritettu: " + course.getFinished() + ", tutkinto: " + degree;
+        Label label = new Label(labelText);
         label.setMinHeight(28);
         Button button = new Button("Course passed");
         button.setOnAction(e->{
