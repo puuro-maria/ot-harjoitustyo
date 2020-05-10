@@ -8,12 +8,20 @@ import java.util.List;
 import java.util.Scanner;
 import domain.Student;
 
-
+/**
+ * Opiskelijan Data Access Object, joka kirjoittaa tiedostoon ja lukee sieltä
+ * @author vpuurone
+ */
 public class FileStudentDao implements StudentDao {
     
     private List<Student> students;
     private String file;
     
+    /**
+     * Konstruktori ottaa yhteyden tiedostoon ja lukee sieltä opiskelijalistan
+     * @param file
+     * @throws Exception
+     */
     public FileStudentDao(String file) throws Exception {
         this.file = file;
         students = new ArrayList<>();
@@ -40,11 +48,20 @@ public class FileStudentDao implements StudentDao {
         }
     }
     
+    /**
+     * Palauttaa listan kaikista opiskelijoista
+     * @return
+     */
     @Override
     public List<Student> getAll() {
         return students;
     }
     
+    /**
+     * Hakee opiskelijan opiskelijanumerolla
+     * @param studentId
+     * @return student
+     */
     @Override
     public Student findByStudentId(String studentId) {
         return students.stream()
@@ -54,6 +71,12 @@ public class FileStudentDao implements StudentDao {
                 .orElse(null);
     }
     
+    /**
+     * Luo opiskelijan
+     * @param student
+     * @return student
+     * @throws Exception
+     */
     @Override
     public Student create(Student student) throws Exception {
         students.add(student);
