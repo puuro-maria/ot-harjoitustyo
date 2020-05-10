@@ -327,7 +327,7 @@ public class UI extends Application {
             if (degreeBox.getValue().equals("Kandidaatti")) {
                 degree = Degree.BACHELOR;
             } else if (degreeBox.getValue().equals("Maisteri")) {
-                degree = Degree.MASTER;
+                degree = Degree.MASTER; 
             } else {
                 createCourseMessage.setText("Onko kurssi kandi- vai maisterivaiheen kurssi?");
                 createCourseMessage.setTextFill(Color.RED);
