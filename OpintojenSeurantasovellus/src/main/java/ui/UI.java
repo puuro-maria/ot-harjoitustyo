@@ -70,10 +70,16 @@ public class UI extends Application {
         Label label = new Label(labelText);
         label.setMinHeight(28);
 
-        Button button = new Button("Course passed");
+        Button button = new Button("Kurssi suoritettu");
         button.setOnAction(e->{
         logic.finishCourse(studentId, course);
         redrawCourseList(studentId);
+        });
+        
+        Button delete  = new Button("Poista kurssi");
+        delete.setOnAction(e->{
+            logic.removeCourse(studentId, course.getId());
+            redrawCourseList(studentId);
         });
 
         Region spacer = new Region();
@@ -82,7 +88,7 @@ public class UI extends Application {
         
         box.getChildren().addAll(label, spacer);
         if (course.getFinished() == false) {
-            box.getChildren().addAll(button);
+            box.getChildren().addAll(button, delete);
         }
         return box;
     }
@@ -269,7 +275,7 @@ public class UI extends Application {
         });
         
         Label createCourseMessage = new Label();
-        VBox createCourseForm = new VBox(20);
+        VBox createCourseForm = new VBox(10);
         Button createCourse = new Button("Lisää kurssi");
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
@@ -277,36 +283,36 @@ public class UI extends Application {
         TextField courseIdInput = new TextField();
         Label courseIdLabel = new Label("Kurssinumero");
         courseIdLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseIdPane = new HBox(20);
-        courseIdPane.setPadding(new Insets(20));
+        HBox courseIdPane = new HBox(10);
+        courseIdPane.setPadding(new Insets(10));
         courseIdPane.getChildren().addAll(courseIdLabel, courseIdInput);
         
         TextField courseNameInput= new TextField();
         Label courseNameLabel = new Label("Kurssin nimi");
         courseNameLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseNamePane = new HBox(20);
-        courseNamePane.setPadding(new Insets(20));
+        HBox courseNamePane = new HBox(10);
+        courseNamePane.setPadding(new Insets(10));
         courseNamePane.getChildren().addAll(courseNameLabel, courseNameInput);
         
         TextField courseCreditInput = new TextField();
         Label courseCreditLabel = new Label("Opintopisteet");
         courseCreditLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseCreditPane = new HBox(20);
-        courseCreditPane.setPadding(new Insets(20));
+        HBox courseCreditPane = new HBox(10);
+        courseCreditPane.setPadding(new Insets(10));
         courseCreditPane.getChildren().addAll(courseCreditLabel, courseCreditInput);
         
         TextField courseProfInput = new TextField();
         Label courseProfLabel = new Label("Kurssin vastuuopettaja"); 
         courseProfLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseProfPane = new HBox(20);
-        courseProfPane.setPadding(new Insets(20));
+        HBox courseProfPane = new HBox(10);
+        courseProfPane.setPadding(new Insets(10));
         courseProfPane.getChildren().addAll(courseProfLabel, courseProfInput);
 
         
         ChoiceBox degreeBox = new ChoiceBox();
         Label courseDegreeLabel = new Label("Kurssi kuuluu tutkintoon"); 
         courseDegreeLabel.setMinWidth(Region.USE_PREF_SIZE);
-        HBox courseDegreePane = new HBox(20);
+        HBox courseDegreePane = new HBox(10);
         degreeBox.getItems().add("Kandidaatti");
         degreeBox.getItems().add("Maisteri");
         courseDegreePane.getChildren().addAll(courseDegreeLabel, degreeBox);
@@ -332,7 +338,7 @@ public class UI extends Application {
                 createCourseMessage.setText("Kurssi lisätty opiskelijalle" + logic.getLoggedInStudent());
                 createCourseMessage.setTextFill(Color.GREEN);
                 redrawCourseList(logic.getLoggedInStudent());
-                createCourseForm.getChildren().clear();
+                primary.setScene(listScene);
             } else {
                 createCourseMessage.setText("Tarkista, että kaikki kentät on täytetty!");
                 createCourseMessage.setTextFill(Color.RED);

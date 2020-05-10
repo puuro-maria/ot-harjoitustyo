@@ -10,11 +10,20 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
 
+/**
+ * Data Access Object kurssille, joka kirjoittaa tiedostoon ja lukee sieltä
+ * @author vpuurone
+ */
 public class FileCourseDao implements CourseDao {
     
     private List<Course> courses;
     private String file;
     
+    /**
+     * Luo yhteys tiedostoon ja lue sieltä kurssilistaus
+     * @param file
+     * @throws Exception
+     */
     public FileCourseDao(String file) throws Exception {
         this.file = file;
         courses = new ArrayList<>();
@@ -41,11 +50,20 @@ public class FileCourseDao implements CourseDao {
         }
     }
     
+    /**
+     * Listaa kaikki kurssit
+     * @return courses
+     */
     @Override
     public List<Course> getAll() {
         return courses;
     }
     
+    /**
+     * Etsi kurssi kurssi-id:llä
+     * @param courseId
+     * @return course
+     */
     @Override
     public Course findByCourseId(String courseId) {
         int id = Integer.parseInt(courseId);
@@ -55,6 +73,11 @@ public class FileCourseDao implements CourseDao {
                 .orElse(null);
     }
     
+    /**
+     * Etsi kurssilistaus opiskelijanumerolla
+     * @param studentId
+     * @return courselist
+     */
     @Override
     public List<Course> findCoursesByStudentId(String studentId) {
         List<Course> result = new ArrayList<>();
@@ -65,6 +88,12 @@ public class FileCourseDao implements CourseDao {
         return result;
     }
     
+    /**
+     * Luo kurssi
+     * @param course
+     * @return course
+     * @throws Exception
+     */
     @Override
     public Course create(Course course) throws Exception {
         courses.add(course);
@@ -72,6 +101,12 @@ public class FileCourseDao implements CourseDao {
         return course;
     }
     
+    /**
+     * Merkitse kurssi suoritetuksi
+     * @param course
+     * @param studentId
+     * @throws Exception
+     */
     @Override
     public void setDone(Course course, String studentId) throws Exception {
         for (Course c : courses) {
@@ -82,6 +117,12 @@ public class FileCourseDao implements CourseDao {
         save();
     }
     
+    /**
+     * Poista kurssi
+     * @param course
+     * @param studentId
+     * @throws Exception
+     */
     @Override
     public void removeCourse(Course course, String studentId) throws Exception {
         for (Course c : courses) {

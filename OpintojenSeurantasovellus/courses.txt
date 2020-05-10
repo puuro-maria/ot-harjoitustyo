@@ -9,3 +9,6 @@
 000;12;tietokantojen perusteet;5;en tiedä;BACHELOR;true
 000;11111;aa;5;e;MASTER;true
 000;90;Kurssin nimi;9;ope;MASTER;false
+000;0;OTM;5;a;BACHELOR;false
+000;22;Introduction to Machine Learning;5;ope;MASTER;true
+000;99;Advanced Machine Learning;5;k;MASTER;false
