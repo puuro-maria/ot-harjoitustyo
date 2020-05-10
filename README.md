@@ -1,10 +1,11 @@
-# Opintojen suunnittelusovellus
+![Alt_text](https://media.giphy.com/media/HPF6ivflFs7U4/giphy.gif)
+# Opintojen suunnittelusovellus :green_book:
 
 Sovelluksessa voi pitää kirjaa omien opintojen nykytilanteesta ja suunnitelmista. Sovellukseen lisätään jo käytyjä tai suunnitteilla olevia kursseja, jotka voidaan merkitä jo suoritetuksi tai ei vielä suoritetuksi. Sovellus näyttää, mitkä kurssit kuuluvat kandidaatin- ja maisterintutkintoon ja kuinka paljon opintopisteitä vielä puuttuu.
 
 Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
-## Viimeisin release
+## Viimeisin release :loudspeaker:
 
 [Viikon 6 release](https://github.com/puuro-maria/ot-harjoitustyo/releases/tag/viikko6)
 
@@ -16,9 +17,9 @@ Sovellus (esim. viikon 6 versio) käynnistyy konsolissa komennolla:
 java -jar viikko6.jar
 ```
 
-## Komentorivitoiminnot
+## Komentorivitoiminnot :robot:
 
-Lataa paketti: 
+Lataa paketti omalle koneelle: 
 ```
 git clone https://github.com/puuro-maria/ot-harjoitustyo
 
@@ -48,22 +49,25 @@ mvn jxr:jxr checkstyle:checkstyle
 ```
 Raportti ilmestyy kansioon *target/site* ja tiedoston nimi on *checkstyle.html*
 
-**JavaDoc: (ei vielä käytössä)**
+**JavaDoc:**
 ```
 mvn javadoc:javadoc
 ```
+Javadoc löytyy *target/site/apidocs/index.html* -tiedostosta.
 
-## Dokumentaatio
+## Dokumentaatio :page_with_curl:
 
-[Vaatimusmäärittely](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md) :pencil:
 
-[Arkkitehtuuri](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
+[Arkkitehtuuri](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md) :triangular_ruler:
 
-[Työaikakirjanpito](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md) :clock10:
+
+[Käyttäjän ohjeet](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/kayttoohjeet.md) :woman:
 
 ## Muuta
 
-- Java versio 11
+- Ohjelma toimii Javan versiolla 11
 
-**Huom. tällä hetkellä DAO-pakkaus ei ole vielä käytössä sovelluksessa, sovellus ei vielä tallenna tietoja tiedostoon/tietokantaan.**
+
 
