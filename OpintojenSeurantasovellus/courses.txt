@@ -12,3 +12,5 @@
 000;0;OTM;5;a;BACHELOR;false
 000;22;Introduction to Machine Learning;5;ope;MASTER;true
 000;99;Advanced Machine Learning;5;k;MASTER;false
+000;444;aaaaaa;1;dsf;BACHELOR;false
+0909;6;örp;9;örp;BACHELOR;false
