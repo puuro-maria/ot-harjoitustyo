@@ -7,6 +7,8 @@ Sovellus on osa Helsingin Yliopiston Ohjelmistotekniikka-kurssin suoritusta.
 
 ## Viimeisin release :loudspeaker:
 
+[Lopullinen release](https://github.com/puuro-maria/ot-harjoitustyo/releases/tag/Sovellus)
+
 [Viikon 6 release](https://github.com/puuro-maria/ot-harjoitustyo/releases/tag/viikko6)
 
 [Viikon 5 release](https://github.com/puuro-maria/ot-harjoitustyo/releases/tag/viikko5)
