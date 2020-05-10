@@ -82,8 +82,9 @@ public class FileCourseDao implements CourseDao {
     public List<Course> findCoursesByStudentId(String studentId) {
         List<Course> result = new ArrayList<>();
         for (Course c : courses) {
-            if (c.getStudent().equals(studentId))
+            if (c.getStudent().equals(studentId)) {
                 result.add(c);
+            }
         }
         return result;
     }
@@ -110,8 +111,9 @@ public class FileCourseDao implements CourseDao {
     @Override
     public void setDone(Course course, String studentId) throws Exception {
         for (Course c : courses) {
-            if ((c.getId() == course.getId()) & c.getStudent().equals(studentId))
+            if ((c.getId() == course.getId()) & c.getStudent().equals(studentId)) {
                 c.finishCourse();
+            }
         }
         
         save();
@@ -126,8 +128,9 @@ public class FileCourseDao implements CourseDao {
     @Override
     public void removeCourse(Course course, String studentId) throws Exception {
         for (Course c : courses) {
-            if ((c.getId() == course.getId()) & c.getStudent().equals(studentId))
+            if ((c.getId() == course.getId()) & c.getStudent().equals(studentId)) {
                 courses.remove(c);
+            }
         }
         
         save();

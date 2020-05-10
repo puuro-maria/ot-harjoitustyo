@@ -51,8 +51,8 @@ public class Logic {
         if (alreadyReg == false) {
             Student student = new Student(id, name, studentId, uni, password);
             try {
-            studentDao.create(student);
-            id++;
+                studentDao.create(student);
+                id++;
             } catch (Exception e) {
                 return false;
             }
@@ -75,7 +75,7 @@ public class Logic {
         
         Course c = new Course(studentId, courseId, courseName, credits, professor, degree, finished);
         try {
-        courseDao.create(c);
+            courseDao.create(c);
         } catch (Exception e) {
             return false;
         }
