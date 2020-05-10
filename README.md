@@ -65,9 +65,17 @@ Javadoc löytyy *target/site/apidocs/index.html* -tiedostosta.
 
 [Käyttäjän ohjeet](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/kayttoohjeet.md) :woman:
 
+[Ohjelman testaus](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/testaus.md) :mag:
+
 ## Muuta
 
 - Ohjelma toimii Javan versiolla 11
 
+## Kehitysideoita :bulb:
 
+- Käyttöliittymässä olisi paranneltavaa.
+
+- Dao-oliot voisi kytkeä tietokantaan sen sijaan, että ne kirjottaisivat tekstitiedostoihin. Tämä on toteutettavissa.
+
+- Opinnoista voisi tarjota tarkempaa analyysia ja aikataulutusta, esim. *vuodelle 2021 suunnitellut opinnot yhteensä 65 op.*
 
