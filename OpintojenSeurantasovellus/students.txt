@@ -3,3 +3,4 @@
 1;kakak;8989;glkjf;salasana
 1;sa;1111111111111;aa;po
 1;kana;0909;kana;kana
+1;k;000111;k;kää
