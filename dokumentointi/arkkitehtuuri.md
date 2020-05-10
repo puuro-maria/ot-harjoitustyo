@@ -1,3 +1,3 @@
 # Opintojen seurantasovelluksen pakkauskaavio
 
-![alt text](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/Pakkauskaavio_OSS.JPG "Pakkauskaavio")
+![alt text](https://github.com/puuro-maria/ot-harjoitustyo/blob/master/dokumentointi/OSS_Pakkauskaavio.PNG "Pakkauskaavio")
