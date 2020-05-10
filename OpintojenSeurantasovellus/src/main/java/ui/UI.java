@@ -338,6 +338,10 @@ public class UI extends Application {
                 createCourseMessage.setText("Kurssi lisätty opiskelijalle" + logic.getLoggedInStudent());
                 createCourseMessage.setTextFill(Color.GREEN);
                 redrawCourseList(logic.getLoggedInStudent());
+                courseIdInput.clear();
+                courseNameInput.clear();
+                courseCreditInput.clear();
+                courseProfInput.clear();
                 primary.setScene(listScene);
             } else {
                 createCourseMessage.setText("Tarkista, että kaikki kentät on täytetty!");
