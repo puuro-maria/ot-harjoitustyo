@@ -8,6 +8,7 @@ import domain.Student;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
+import org.junit.After;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -78,6 +79,42 @@ public class FileCourseDaoTest {
         }
         
         assertTrue(courseDao.getAll().size() == 1);
+    }
+    
+    @Test
+    public void findByCourseIdWorks() {
+        Course c = courseDao.findByCourseId("1");
+        assertEquals("Kurssi", c.getName());
+    }
+    
+    @Test
+    public void findCoursesByStudentIdWorks() {
+        try { 
+            courseDao.create(new Course("12", 2, "Toka kurssi", 5, "proffa", Degree.MASTER, false));
+        } catch (Exception e) {
+            
+        }
+        
+        List<Course> courselist = courseDao.findCoursesByStudentId("12");
+        assertTrue(courselist.size() == 2 & courselist.get(0).getName().equals("Kurssi") & courselist.get(1).getName().equals("Toka kurssi"));
+    }
+    
+    @Test
+    public void getAllWorks() {
+        try { 
+            courseDao.create(new Course("1", 6, "Eri kurssi", 4, "aa", Degree.BACHELOR, true));
+        } catch (Exception e) {
+            
+        }
+        
+        List<Course> courselist = courseDao.getAll();
+        
+        assertTrue(courselist.size() == 2 & courselist.get(1).getName().equals("Eri kurssi"));
+    }
+    
+    @After
+    public void tearDown() {
+        courseFile.delete();
     }
     
 }
